@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Global, css } from "@emotion/react";
 import {
   Links,
   LiveReload,
@@ -10,7 +11,7 @@ import {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "5Pots",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -20,8 +21,26 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
+        <Global
+          styles={css`
+            font-family: "Quicksand", sans-serif;
+            strong {
+              font-weight: bold;
+            }
+          `}
+        />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
