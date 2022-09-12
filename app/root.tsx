@@ -1,5 +1,4 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Global, css } from "@emotion/react";
 import {
   Links,
   LiveReload,
@@ -8,6 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { ThemeProvider } from "./contexts/Theme";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -33,18 +33,12 @@ export default function App() {
         />
       </head>
       <body>
-        <Global
-          styles={css`
-            font-family: "Quicksand", sans-serif;
-            strong {
-              font-weight: bold;
-            }
-          `}
-        />
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+        <ThemeProvider>
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </ThemeProvider>
       </body>
     </html>
   );
