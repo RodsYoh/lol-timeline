@@ -1,3 +1,5 @@
+import { Checkbox } from "~/components/Checkbox";
+
 export default function Index() {
   return (
     <div>
@@ -26,6 +28,7 @@ export default function Index() {
             Remix Docs
           </a>
         </li>
+        <Checkbox label="teste" onClick={console.log} />
       </ul>
     </div>
   );

@@ -1,5 +1,4 @@
 import { describe, it } from "vitest";
-import user from "@testing-library/user-event";
 import { render, screen } from "../../test-utils";
 import { Checkbox } from "./Checkbox";
 
@@ -16,15 +15,5 @@ describe("<Checkbox />", () => {
 
     const checkbox = screen.getByLabelText("Checkbox test");
     expect(checkbox).toBeChecked();
-  });
-
-  it("runs the `onChange` function", () => {
-    const onChange = jest.fn();
-    render(<Checkbox label="Checkbox test" onChange={onChange} />);
-
-    const checkbox = screen.getByLabelText("Checkbox test");
-    user.click(checkbox);
-
-    expect(onChange).toBeCalledTimes(1);
   });
 });

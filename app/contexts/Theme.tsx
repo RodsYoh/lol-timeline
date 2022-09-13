@@ -12,6 +12,7 @@ const theme = {
     champions: "#FDFD9B",
     pbe: "#3BDDF9",
     release: "#51FC90",
+    rumor: "#F2E9ED",
   },
 };
 

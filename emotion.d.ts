@@ -12,6 +12,7 @@ declare module "@emotion/react" {
       champions: string;
       pbe: string;
       release: string;
+      rumor: string;
     };
   }
 }
