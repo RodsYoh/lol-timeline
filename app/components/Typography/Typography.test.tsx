@@ -1,5 +1,5 @@
 import { describe, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../test-utils";
 
 import { Typography } from "./Typography";
 import type { TypographyProps } from "./Typography";

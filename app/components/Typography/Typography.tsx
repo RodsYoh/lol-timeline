@@ -22,11 +22,7 @@ export const Typography = (props: TypographyProps) => {
   );
 };
 
-export interface TypographyProps
-  extends Pick<
-    React.HTMLAttributes<HTMLElement>,
-    "id" | "className" | "style"
-  > {
+export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * HTML Component wich will be rendered on the DOM
    */
