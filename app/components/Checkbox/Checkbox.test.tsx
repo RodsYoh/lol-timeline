@@ -1,5 +1,6 @@
-import { describe, it } from "vitest";
-import { render, screen } from "../../test-utils";
+import { describe, it, vi } from "vitest";
+import userEvent from "@testing-library/user-event";
+import { screen, render, fireEvent } from "~/test-utils";
 import { Checkbox } from "./Checkbox";
 
 describe("<Checkbox />", () => {
@@ -15,5 +16,16 @@ describe("<Checkbox />", () => {
 
     const checkbox = screen.getByLabelText("Checkbox test");
     expect(checkbox).toBeChecked();
+  });
+
+  it("runs the `onChange` function", async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    render(<Checkbox label="Checkbox test" onClick={onChange} />);
+
+    const checkbox = screen.getByLabelText("Checkbox test");
+    await user.click(checkbox);
+
+    expect(onChange).toBeCalled();
   });
 });

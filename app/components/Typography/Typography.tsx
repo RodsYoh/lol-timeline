@@ -16,7 +16,7 @@ export const Typography = (props: TypographyProps) => {
     <TextContainer
       as={htmlTag}
       variant={variant}
-      className={clsx(variant, className)}
+      className={clsx(variant, className, "typography")}
       {...props}
     />
   );

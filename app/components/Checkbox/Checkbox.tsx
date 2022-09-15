@@ -1,14 +1,27 @@
 import { useTheme } from "@emotion/react";
+import { useMemo } from "react";
 import { Typography } from "../Typography";
 import { getRandomCheckboxBackground, getRandomCheckboxFrame } from "./helpers";
 import { CheckboxContainer } from "./styles";
 
+/**
+ * Component that returns a correspondent boolean based on
+ * user's action.
+ *
+ * @example
+ * ```
+ * <Checkbox label="hi from ts-doc!">
+ * ```
+ */
 export const Checkbox = (props: CheckboxProps) => {
   const { label, category = "rumor", checked, id, ...other } = props;
   const theme = useTheme();
 
+  const background = useMemo(getRandomCheckboxBackground, []);
+  const frame = useMemo(getRandomCheckboxFrame, []);
+
   return (
-    <CheckboxContainer htmlFor={id}>
+    <CheckboxContainer className="checkbox" htmlFor={id}>
       <svg
         width="26"
         height="26"
@@ -16,21 +29,21 @@ export const Checkbox = (props: CheckboxProps) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {checked && (
-          <path
-            d={getRandomCheckboxBackground()}
-            fill={theme.color[category]}
-          />
-        )}
+        {checked && <path d={background} fill={theme.color[category]} />}
         <path
-          d={getRandomCheckboxFrame()}
+          d={frame}
           stroke={theme.color[category]}
           strokeWidth="2"
           strokeLinecap="round"
         />
       </svg>
       <Typography htmlTag="strong">{label}</Typography>
-      <input type="checkbox" checked={checked} {...other} />
+      <input
+        data-testid="teste"
+        type="checkbox"
+        defaultChecked={checked}
+        {...other}
+      />
     </CheckboxContainer>
   );
 };
@@ -45,5 +58,5 @@ export interface CheckboxProps
   /**
    * Category that defines the checkbox color
    */
-  category?: "skins" | "changes" | "champions" | "pbe" | "release" | "rumor";
+  category?: Category;
 }
