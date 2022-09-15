@@ -43,6 +43,7 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            height: 100%;
           }
           body {
             background-color: ${theme.color.backgroundPrimary};
