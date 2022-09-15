@@ -1,4 +1,5 @@
 import { useTheme } from "@emotion/react";
+import clsx from "clsx";
 import { useMemo } from "react";
 import { Typography } from "../Typography";
 import { getRandomCheckboxBackground, getRandomCheckboxFrame } from "./helpers";
@@ -29,7 +30,11 @@ export const Checkbox = (props: CheckboxProps) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {checked && <path d={background} fill={theme.color[category]} />}
+        <path
+          d={background}
+          className={clsx("background", checked && "background--checked")}
+          fill={theme.color[category]}
+        />
         <path
           d={frame}
           stroke={theme.color[category]}

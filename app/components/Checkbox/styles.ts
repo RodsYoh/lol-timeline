@@ -9,11 +9,19 @@ export const CheckboxContainer = styled.label`
   }
 
   svg {
-    margin-right: 0.5rem;
+    margin-right: 0.75rem;
   }
 
   input {
     opacity: 0;
     visibility: hidden;
+  }
+
+  .background {
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+    &--checked {
+      opacity: 1;
+    }
   }
 `;
