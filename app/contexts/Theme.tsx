@@ -1,6 +1,15 @@
 import { ThemeProvider as EmotionProvider } from "@emotion/react";
 import { Global, css } from "@emotion/react";
 
+const breakpoints = {
+  xs: 0,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  xxl: 1536,
+};
+
 const theme = {
   color: {
     backgroundPrimary: "#141529",
@@ -13,6 +22,14 @@ const theme = {
     pbe: "#3BDDF9",
     release: "#51FC90",
     rumor: "#F2E9ED",
+  },
+  screens: {
+    xs: `only screen and (min-width: ${breakpoints.xs}px)`,
+    sm: `only screen and (min-width: ${breakpoints.sm}px)`,
+    md: `only screen and (min-width: ${breakpoints.md}px)`,
+    lg: `only screen and (min-width: ${breakpoints.lg}px)`,
+    xl: `only screen and (min-width: ${breakpoints.xl}px)`,
+    xxl: `only screen and (min-width: ${breakpoints.xxl}px)`,
   },
 };
 

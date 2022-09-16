@@ -14,5 +14,13 @@ declare module "@emotion/react" {
       release: string;
       rumor: string;
     };
+    screens: {
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      xxl: string;
+    };
   }
 }
