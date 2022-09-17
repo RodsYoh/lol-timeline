@@ -1,0 +1,20 @@
+export const changes: TimelineEvent = {
+  champions: [
+    { championId: "Ivern", name: "Ivern" },
+    { championId: "AurelionSol", name: "Aurelion Sol" },
+    { championId: "Sion", name: "Sion" },
+    { championId: "Bard", name: "Bard" },
+    { championId: "ChoGath", name: "Cho'Gath" },
+    { championId: "Swain", name: "Swain" },
+    { championId: "Jinx", name: "Jinx" },
+    { championId: "Jhin", name: "Jhin" },
+  ],
+  backgroundCategory: "pbe",
+  borderCategory: "changes",
+  description: "Changes for: Ivern, Aurelion Sol, Sion and more!",
+  endDate: "2022-09-30",
+  startDate: "2022-09-01",
+  image: "https://assets.5pots.com/file/cincopots/timeline/changes.jpg",
+  name: "12.19 Nerfs and Buffs",
+  url: "https://twitter.com/RiotPhroxzon/status/1569829428280303616",
+};
