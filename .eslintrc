@@ -5,10 +5,6 @@
     "@remix-run/eslint-config/jest-testing-library",
     "prettier"
   ],
-  "env": {
-    "cypress/globals": true
-  },
-  "plugins": ["cypress"],
   "settings": {
     "jest": {
       "version": 28

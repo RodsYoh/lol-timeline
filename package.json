@@ -5,11 +5,10 @@
     "build": "remix build",
     "dev": "remix dev",
     "test": "vitest",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "test:e2e": "playwright test",
     "format": "prettier --write .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "typecheck": "tsc -b && tsc -b cypress"
+    "typecheck": "tsc -b"
   },
   "prettier": {},
   "eslintIgnore": [
@@ -30,10 +29,10 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
+    "@playwright/test": "^1.25.2",
     "@remix-run/dev": "^1.7.0",
     "@remix-run/eslint-config": "^1.7.0",
     "@remix-run/serve": "^1.7.0",
-    "@testing-library/cypress": "^8.0.3",
     "@testing-library/dom": "^8.17.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -42,10 +41,8 @@
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
     "@vitest/coverage-c8": "^0.22.1",
-    "cypress": "^10.6.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-cypress": "^2.12.1",
     "happy-dom": "^6.0.4",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4",
