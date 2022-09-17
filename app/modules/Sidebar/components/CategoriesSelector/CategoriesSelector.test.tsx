@@ -2,8 +2,10 @@ import userEvent from "@testing-library/user-event";
 import { describe, it, vi } from "vitest";
 import { screen, render } from "~/test-utils";
 
-import { CategoriesSelector } from "./CategoriesSelector";
-import type { CategoriesSelectorProps } from "./CategoriesSelector";
+import {
+  CategoriesSelector,
+  type CategoriesSelectorProps,
+} from "./CategoriesSelector";
 
 describe("<CategoriesSelector>", () => {
   const categories: CategoriesSelectorProps["categories"] = [

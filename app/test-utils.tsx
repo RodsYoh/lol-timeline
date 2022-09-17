@@ -1,7 +1,5 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import type { FC, ReactElement } from "react";
-import type { RenderOptions } from "@testing-library/react";
+import React, { type FC, type ReactElement } from "react";
+import { render, type RenderOptions } from "@testing-library/react";
 
 import { ThemeProvider } from "./contexts/Theme";
 

@@ -1,8 +1,7 @@
 import { describe, it } from "vitest";
 import { render, screen } from "../../test-utils";
 
-import { Typography } from "./Typography";
-import type { TypographyProps } from "./Typography";
+import { Typography, type TypographyProps } from "./Typography";
 
 describe("<Typography />", () => {
   it("renders a <span /> as default htmlTag", () => {
