@@ -5,5 +5,5 @@ export const CalendarWrapper = (props: CalendarWrapperProps) => {
 };
 
 interface CalendarWrapperProps {
-  data: Record<string, TimelineEvent>[];
+  data: Record<string, TimelineEvent>;
 }

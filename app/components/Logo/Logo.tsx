@@ -1,5 +1,4 @@
 import { useTheme } from "@emotion/react";
-import type { LogoProps } from "./interfaces";
 
 /**
  * 5pots's colorful logo!
@@ -86,3 +85,16 @@ export const Logo = (props: LogoProps) => {
     </svg>
   );
 };
+
+interface LogoProps {
+  /**
+   * Logo's width
+   * @default undefined
+   */
+  width?: string;
+  /**
+   * Logo's height
+   * @default undefined
+   */
+  height?: string;
+}

@@ -5,5 +5,5 @@ export const CardsWrapper = (props: CardsWrapperProps) => {
 };
 
 interface CardsWrapperProps {
-  data: Record<string, TimelineEvent>[];
+  data: Record<string, TimelineEvent>;
 }

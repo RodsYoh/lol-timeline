@@ -48,7 +48,7 @@ interface TimelineEvent {
   /**
    * Event's image. Required for events that will be featured
    */
-  image?: string;
+  image?: { url: string; alt: string };
   /**
    * Sub events to render as card when the user performs an action in the
    * timeline
