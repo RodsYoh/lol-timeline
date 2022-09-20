@@ -1,5 +1,5 @@
 import { vi, describe, it } from "vitest";
-import { screen, render } from "@testing-library/react";
+import { screen, render } from "~/test-utils";
 import userEvent from "@testing-library/user-event";
 import { data as mockData } from "../../../../../vitest/mocks";
 
@@ -36,7 +36,7 @@ describe("<Card />", () => {
         <Card category="udyr" {...mockData.udyr} onEventClick={vi.fn()} />
       );
 
-      const cardTitle = screen.getByRole("heading", { name: "Udyr" });
+      const cardTitle = screen.getByRole("heading", { name: "UDYR" });
 
       expect(cardTitle).toBeVisible();
     });

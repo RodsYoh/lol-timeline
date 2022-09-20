@@ -65,9 +65,17 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
           body {
             background-color: ${theme.color.backgroundPrimary};
             font-family: "Quicksand", sans-serif;
+            font-weight: 300;
             strong {
               font-weight: bold;
             }
+          }
+
+          button {
+            border: none;
+            background-color: transparent;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 300;
           }
         `}
       />

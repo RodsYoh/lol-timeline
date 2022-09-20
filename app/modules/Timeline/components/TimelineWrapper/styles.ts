@@ -5,6 +5,7 @@ export const BackgroundContainer = styled.div`
   grid-row: 2/3;
   overflow: hidden;
   position: relative;
+  pointer-events: none;
 
   @media ${({ theme }) => theme.screens.lg} {
     grid-column: 3/13;

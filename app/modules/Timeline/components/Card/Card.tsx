@@ -1,15 +1,20 @@
+import { Typography } from "~/components/Typography";
+import { CardImage } from "./CardImage";
 import { CardWrapper } from "./CardWrapper";
 import { CardContainer } from "./styles";
 
 export const Card = (props: CardProps) => {
   const { name, image, description } = props;
+
   return (
     <CardWrapper {...props}>
       <CardContainer>
-        {image && <img alt={image.alt} src={image.url} />}
+        {image && <CardImage image={image} />}
         <div className="card-text">
-          <h2>{name}</h2>
-          <p>{description}</p>
+          <Typography htmlTag="h2" variant="heading">
+            {name.toUpperCase()}
+          </Typography>
+          <Typography htmlTag="p">{description}</Typography>
         </div>
       </CardContainer>
     </CardWrapper>

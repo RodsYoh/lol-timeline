@@ -15,7 +15,7 @@ interface ExternalCardProps {
   /**
    * URL always existis on this card
    */
-  url: string;
+  url: NonNullable<CardProps["url"]>;
   /**
    * Card content
    */
