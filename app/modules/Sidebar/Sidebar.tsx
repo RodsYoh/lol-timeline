@@ -3,6 +3,11 @@ import { Logo } from "~/components/Logo/Logo";
 import { CategoriesSelector } from "./components/CategoriesSelector/CategoriesSelector";
 import { SidebarContainer } from "./styles";
 
+/**
+ * Main sidebar with Logo and Checkbox filtering categories.
+ *
+ * On mobile, this sidebar becomes a header.
+ */
 export const Sidebar = () => {
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
 

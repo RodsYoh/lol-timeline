@@ -5,5 +5,8 @@ export const CardsWrapper = (props: CardsWrapperProps) => {
 };
 
 interface CardsWrapperProps {
+  /**
+   * Data object where the key is a category for events
+   */
   data: Record<string, TimelineEvent>;
 }
