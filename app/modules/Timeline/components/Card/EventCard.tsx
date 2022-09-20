@@ -1,10 +1,27 @@
+import { type ReactNode } from "react";
+import { type CardProps } from "./Card";
+
 export const EventCard = (props: EventCardProps) => {
-  return <button />;
+  const { children, onEventClick, category } = props;
+
+  return (
+    <button data-testid="event-card" onClick={() => onEventClick(category)}>
+      {children}
+    </button>
+  );
 };
 
-interface EventCardProps extends TimelineEvent {
+interface EventCardProps {
   /**
    * Event handler to filter sub-events on click
    */
-  onEventClick(category: string): void;
+  onEventClick: CardProps["onEventClick"];
+  /**
+   * Card content
+   */
+  children: ReactNode;
+  /**
+   * Key of the data object
+   */
+  category: CardProps["category"];
 }

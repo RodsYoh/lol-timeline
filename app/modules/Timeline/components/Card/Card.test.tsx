@@ -8,7 +8,9 @@ import { Card } from "./Card";
 describe("<Card />", () => {
   describe("General Card Component", () => {
     it("renders a Event Card when the event has a `subEvents` property", () => {
-      render(<Card {...mockData.udyr} onEventClick={vi.fn()} />);
+      render(
+        <Card category="udyr" {...mockData.udyr} onEventClick={vi.fn()} />
+      );
 
       const eventCard = screen.getByTestId("event-card");
 
@@ -16,7 +18,13 @@ describe("<Card />", () => {
     });
 
     it("renders a External Card when the event has a `url` property", () => {
-      render(<Card {...mockData.udyr.subEvents![0]} onEventClick={vi.fn()} />);
+      render(
+        <Card
+          category="udyr"
+          {...mockData.udyr.subEvents![0]}
+          onEventClick={vi.fn()}
+        />
+      );
 
       const eventCard = screen.getByTestId("external-card");
 
@@ -24,7 +32,9 @@ describe("<Card />", () => {
     });
 
     it("has a title", () => {
-      render(<Card {...mockData.udyr} onEventClick={vi.fn()} />);
+      render(
+        <Card category="udyr" {...mockData.udyr} onEventClick={vi.fn()} />
+      );
 
       const cardTitle = screen.getByRole("heading", { name: "Udyr" });
 
@@ -32,19 +42,23 @@ describe("<Card />", () => {
     });
 
     it("has a description", () => {
-      render(<Card {...mockData.udyr} onEventClick={vi.fn()} />);
+      render(
+        <Card category="udyr" {...mockData.udyr} onEventClick={vi.fn()} />
+      );
 
-      const cardDescription = screen.getByRole("paragraph", {
-        name: "The Udyr champion update is now testing on the PBE!",
-      });
+      const cardDescription = screen.getByText(
+        "The Udyr champion update is now testing on the PBE!"
+      );
 
       expect(cardDescription).toBeVisible();
     });
 
     it("has an featured image", () => {
-      render(<Card {...mockData.udyr} onEventClick={vi.fn()} />);
+      render(
+        <Card category="udyr" {...mockData.udyr} onEventClick={vi.fn()} />
+      );
 
-      const cardImage = screen.getByRole("image", {
+      const cardImage = screen.getByRole("img", {
         name: "Definitely not Udyr splash art with Udyr taking a selfie",
       });
 
@@ -54,7 +68,13 @@ describe("<Card />", () => {
 
   describe("<ExternalCard />", () => {
     it("has a external url", () => {
-      render(<Card {...mockData.udyr.subEvents![0]} onEventClick={vi.fn()} />);
+      render(
+        <Card
+          category="udyr"
+          {...mockData.udyr.subEvents![0]}
+          onEventClick={vi.fn()}
+        />
+      );
 
       const card = screen.getByRole("link", {
         name: /Gameplay trailer/gi,
@@ -71,7 +91,9 @@ describe("<Card />", () => {
     it("runs the `onEventClick` function when clicked", async () => {
       const user = userEvent.setup();
       const onEventClick = vi.fn();
-      render(<Card {...mockData.udyr} onEventClick={onEventClick} />);
+      render(
+        <Card category="udyr" {...mockData.udyr} onEventClick={onEventClick} />
+      );
 
       const card = screen.getByRole("button", {
         name: /Udyr/gi,
