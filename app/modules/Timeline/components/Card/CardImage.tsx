@@ -1,6 +1,9 @@
 import { useTheme } from "@emotion/react";
 import { type CardProps } from "./Card";
 
+/**
+ * Card featured image with a drawn frame.
+ */
 export const CardImage = (props: CardImageProps) => {
   const { image } = props;
   const theme = useTheme();

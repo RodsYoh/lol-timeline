@@ -1,6 +1,10 @@
 import { type ReactNode } from "react";
 import { type CardProps } from "./Card";
 
+/**
+ * Component that defines if the card will open additional
+ * cards.
+ */
 export const EventCard = (props: EventCardProps) => {
   const { children, onEventClick, category } = props;
 

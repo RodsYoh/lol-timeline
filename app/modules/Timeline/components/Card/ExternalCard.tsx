@@ -1,6 +1,10 @@
 import { type ReactNode } from "react";
 import { type CardProps } from "./Card";
 
+/**
+ * When the timeline card points to an external link,
+ * this component is used
+ */
 export const ExternalCard = (props: ExternalCardProps) => {
   const { url, children } = props;
 

@@ -4,6 +4,9 @@ import { CardImage } from "./CardImage";
 import { CardWrapper } from "./CardWrapper";
 import { CardContainer } from "./styles";
 
+/**
+ * Card component that stays on the lower part of the timeline
+ */
 export const Card = (props: CardProps) => {
   const { name, image, description, backgroundCategory, borderCategory } =
     props;

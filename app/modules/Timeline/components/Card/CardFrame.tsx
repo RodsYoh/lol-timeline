@@ -2,6 +2,10 @@ import { useTheme } from "@emotion/react";
 import { useMemo } from "react";
 import { getRandomBackground, getRandomCardFrame } from "./helpers";
 
+/**
+ * Card frame component to create drawing effect
+ * on the card and paint with his category color.
+ */
 export const CardFrame = (props: CardFrameProps) => {
   const { borderCategory, backgroundCategory } = props;
   const theme = useTheme();
