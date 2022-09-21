@@ -11,6 +11,7 @@ export const Card = (props: CardProps) => {
   return (
     <CardWrapper {...props}>
       <CardContainer>
+        <div className="card-background" />
         {image && <CardImage image={image} />}
         <div className="card-text">
           <Typography htmlTag="h2" variant="heading">
