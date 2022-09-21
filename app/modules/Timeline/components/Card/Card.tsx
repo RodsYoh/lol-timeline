@@ -1,10 +1,12 @@
 import { Typography } from "~/components/Typography";
+import { CardFrame } from "./CardFrame";
 import { CardImage } from "./CardImage";
 import { CardWrapper } from "./CardWrapper";
 import { CardContainer } from "./styles";
 
 export const Card = (props: CardProps) => {
-  const { name, image, description } = props;
+  const { name, image, description, backgroundCategory, borderCategory } =
+    props;
 
   return (
     <CardWrapper {...props}>
@@ -16,6 +18,10 @@ export const Card = (props: CardProps) => {
           </Typography>
           <Typography htmlTag="p">{description}</Typography>
         </div>
+        <CardFrame
+          backgroundCategory={backgroundCategory}
+          borderCategory={borderCategory}
+        />
       </CardContainer>
     </CardWrapper>
   );

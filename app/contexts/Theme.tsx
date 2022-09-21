@@ -76,6 +76,10 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
             background-color: transparent;
             font-family: "Quicksand", sans-serif;
             font-weight: 300;
+
+            &:hover {
+              cursor: pointer;
+            }
           }
         `}
       />

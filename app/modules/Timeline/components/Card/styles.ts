@@ -7,10 +7,11 @@ export const EventCardContainer = styled.div``;
 export const CardContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   background-color: ${({ theme }) => theme.color.backgroundPrimary};
-  max-width: 22rem;
-  border-radius: 3rem;
+  max-width: 21.5rem;
+  border-radius: 2.5rem;
+  position: relative;
 
   .card-image {
     width: 6.5rem;
@@ -39,6 +40,25 @@ export const CardContainer = styled.div`
     h2 {
       margin-bottom: 1rem;
       text-transform: uppercase;
+    }
+  }
+
+  .card-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &--background {
+      z-index: -1;
+      width: 150%;
+      height: 120%;
+    }
+
+    &--border {
+      z-index: 10;
+      width: 150%;
+      height: 120%;
     }
   }
 `;
