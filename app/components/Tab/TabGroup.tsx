@@ -1,5 +1,26 @@
 import { createContext } from "react";
 
+/**
+ * Tab wrapper component. Makes that only one tab can be selected at a time.
+ *
+ * @example
+ * ```
+ * const [selectedTab, setSelectedTab] = useState("im-a-tab");
+ *
+ * function handleChange(event: React.SyntheticEvent, newValue: string) {
+ *  setSelectedTab(newValue);
+ * }
+ *
+ * <TabGroup
+ *  onChange={handleChange}
+ *  currentlySelected="im-a-tab"
+ *  aria-label="example tab group"
+ * >
+ *   <Tab value="im-a-tab">I'm a tab!</Tab>
+ *   <Tab value="im-another-tab">I'm another tab!</Tab>
+ * </TabGroup>
+ * ```
+ */
 export const TabGroup = (props: TabGroupProps) => {
   return <div />;
 };
@@ -11,12 +32,27 @@ export const TabContext = createContext<TabContextProps>({
 
 interface TabGroupProps
   extends Omit<React.HTMLAttributes<HTMLElement>, "onChange"> {
+  /**
+   * Function that will be called when a tab is clicked.
+   */
   onChange: (e: React.SyntheticEvent, newValue: string) => void;
+  /**
+   * Value of the currently selected tab.
+   */
   currentlySelected: string;
+  /**
+   * <Tab /> components that will be rendered inside the group.
+   */
   children: React.ReactNode;
 }
 
 interface TabContextProps {
+  /**
+   * Function that will be called when a tab is clicked.
+   */
   onChange: TabGroupProps["onChange"];
+  /**
+   * Value of the currently selected tab.
+   */
   currentlySelected: TabGroupProps["currentlySelected"];
 }

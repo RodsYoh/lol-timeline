@@ -1,8 +1,9 @@
 import { describe, it, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { screen, render } from "~/test-utils";
-import { Tab } from "./Tab";
+
 import { TabGroup, TabContext } from "./TabGroup";
+import { Tab } from "./Tab";
 
 describe("Tab", () => {
   describe("<Tab />", () => {
