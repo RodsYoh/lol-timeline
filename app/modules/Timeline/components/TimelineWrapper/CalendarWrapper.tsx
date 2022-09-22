@@ -1,7 +1,12 @@
+import { TimelineHeader } from "../TimelineHeader";
 import { CalendarContainer } from "./styles";
 
 export const CalendarWrapper = (props: CalendarWrapperProps) => {
-  return <CalendarContainer>hello</CalendarContainer>;
+  return (
+    <CalendarContainer>
+      <TimelineHeader />
+    </CalendarContainer>
+  );
 };
 
 interface CalendarWrapperProps {

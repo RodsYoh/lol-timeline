@@ -29,7 +29,7 @@ export const BackgroundContainer = styled.div`
 export const CalendarContainer = styled.section`
   grid-column: 1/13;
   grid-row: 2/3;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   min-height: 50vh;
 
   @media ${({ theme }) => theme.screens.lg} {
