@@ -1,4 +1,5 @@
-import { createContext } from "react";
+import { Children, createContext } from "react";
+import { TabGroupContainer } from "./styles";
 
 /**
  * Tab wrapper component. Makes that only one tab can be selected at a time.
@@ -22,7 +23,14 @@ import { createContext } from "react";
  * ```
  */
 export const TabGroup = (props: TabGroupProps) => {
-  return <div />;
+  const { children, onChange, currentlySelected, ...other } = props;
+  return (
+    <TabContext.Provider value={{ onChange, currentlySelected }}>
+      <TabGroupContainer role="tablist" {...other}>
+        {children}
+      </TabGroupContainer>
+    </TabContext.Provider>
+  );
 };
 
 export const TabContext = createContext<TabContextProps>({

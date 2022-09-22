@@ -1,3 +1,9 @@
+import { useContext } from "react";
+import { Typography } from "../Typography";
+import { TabContainer } from "./styles";
+import { TabContext } from "./TabGroup";
+import { TabIndicator } from "./TabIndicator";
+
 /**
  * Tab component. Renders a tab that can be selected.
  *
@@ -10,7 +16,20 @@
  * ```
  */
 export const Tab = (props: TabProps) => {
-  return <div />;
+  const { children, value } = props;
+  const { onChange, currentlySelected } = useContext(TabContext);
+  const isActive = currentlySelected === value;
+
+  return (
+    <TabContainer
+      role="tab"
+      aria-selected={isActive}
+      onClick={(e) => onChange(e, value)}
+    >
+      <Typography variant="paragraph">{children}</Typography>
+      {isActive && <TabIndicator />}
+    </TabContainer>
+  );
 };
 
 interface TabProps extends React.HTMLAttributes<HTMLElement> {

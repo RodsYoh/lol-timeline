@@ -6,7 +6,7 @@ export const IndicatorContainer = styled.svg`
   path {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: dash 5s linear forwards;
+    animation: dash 1s linear forwards;
   }
 
   @keyframes dash {
@@ -14,4 +14,15 @@ export const IndicatorContainer = styled.svg`
       stroke-dashoffset: 0;
     }
   }
+`;
+
+export const TabContainer = styled.button`
+  padding: 1rem 2rem;
+  background-color: ${({ theme }) => theme.color.backgroundPrimary};
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TabGroupContainer = styled.div`
+  display: flex;
 `;

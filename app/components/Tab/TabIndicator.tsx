@@ -8,10 +8,10 @@ import { IndicatorContainer } from "./styles";
  *
  * @example
  * ```
- * <TabIndication />
+ * <TabIndicator />
  * ```
  */
-export const TabIndication = () => {
+export const TabIndicator = () => {
   const theme = useTheme();
 
   return (
@@ -24,8 +24,8 @@ export const TabIndication = () => {
       <path
         d={getTabIndicator()}
         stroke={theme.color.highlight}
-        stroke-width="4"
-        stroke-linecap="round"
+        strokeWidth="4"
+        strokeLinecap="round"
       />
     </IndicatorContainer>
   );
