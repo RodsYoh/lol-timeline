@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const IndicatorContainer = styled.svg`
   width: 7rem;
-  margin-top: 0.125rem;
   height: auto;
 
   path {
@@ -19,7 +18,7 @@ export const IndicatorContainer = styled.svg`
 `;
 
 export const TabContainer = styled.button`
-  padding: 1rem 1.5rem 0.5rem 1rem;
+  padding: 0.75rem 1rem 0.25rem 1rem;
   min-width: 10rem;
   background-color: ${({ theme }) => theme.color.backgroundPrimary};
   display: flex;

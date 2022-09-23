@@ -24,7 +24,7 @@ export const TabIndicator = () => {
       <path
         d={getTabIndicator()}
         stroke={theme.color.highlight}
-        strokeWidth="4"
+        strokeWidth="2"
         strokeLinecap="round"
       />
     </IndicatorContainer>
