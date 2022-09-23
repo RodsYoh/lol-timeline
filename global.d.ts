@@ -26,17 +26,13 @@ interface TimelineEvent {
   /**
    * Event's initial date on format YYYY-MM-DD
    *
-   * @remarks
-   * Will write this manually. Later it will be a Date.
    */
-  startDate: string;
+  startDate: Date;
   /**
    * Event's initial date on format YYYY-MM-DD
    *
-   * @remarks
-   * Will write this manually. Later it will be a Date.
    */
-  endDate: string;
+  endDate: Date;
   /**
    * Color category for event's border
    */

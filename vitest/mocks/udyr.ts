@@ -3,8 +3,8 @@ const spotlight: TimelineEvent = {
   borderCategory: "champions",
   description:
     "Life is in the struggle, not the victory. Fight by instinct alone with Udyr, the Spirit Walker.",
-  endDate: "2022-09-20",
-  startDate: "2022-09-10",
+  endDate: new Date("2022-09-20T00:00:00.000"),
+  startDate: new Date("2022-09-10T00:00:00.000"),
   image: {
     url: "https://assets.5pots.com/file/cincopots/timeline/udyr-trailer.jpg",
     alt: "Udyr model from upfront with his eyes glowing",
@@ -17,8 +17,8 @@ const skins: TimelineEvent = {
   backgroundCategory: "release",
   borderCategory: "skins",
   description: "Spirit Guard Udyr takes a new form on the rift!",
-  endDate: "2022-09-20",
-  startDate: "2022-09-10",
+  endDate: new Date("2022-09-20T00:00:00.000"),
+  startDate: new Date("2022-09-10T00:00:00.000"),
   image: {
     url: "https://assets.5pots.com/file/cincopots/timeline/udyr-skins.jpg",
     alt: "Spirit Guard Udyr's splash art on his Phoenix form",
@@ -32,8 +32,8 @@ export const udyr: TimelineEvent = {
   backgroundCategory: "pbe",
   borderCategory: "champions",
   description: "The Udyr champion update is now testing on the PBE!",
-  endDate: "2022-09-20",
-  startDate: "2022-09-10",
+  endDate: new Date("2022-09-20T00:00:00.000"),
+  startDate: new Date("2022-09-10T00:00:00.000"),
   image: {
     url: "https://assets.5pots.com/file/cincopots/timeline/udyr.jpg",
     alt: "Definitely not Udyr splash art with Udyr taking a selfie",

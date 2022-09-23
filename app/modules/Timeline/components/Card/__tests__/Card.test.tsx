@@ -1,9 +1,9 @@
 import { vi, describe, it } from "vitest";
 import { screen, render } from "~/test-utils";
 import userEvent from "@testing-library/user-event";
-import { data as mockData } from "../../../../../vitest/mocks";
+import { data as mockData } from "../../../../../../vitest/mocks";
 
-import { Card } from "./Card";
+import { Card } from "../Card";
 
 describe("<Card />", () => {
   describe("General Card Component", () => {

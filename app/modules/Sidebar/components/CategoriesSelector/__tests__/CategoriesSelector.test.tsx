@@ -5,7 +5,7 @@ import { screen, render } from "~/test-utils";
 import {
   CategoriesSelector,
   type CategoriesSelectorProps,
-} from "./CategoriesSelector";
+} from "../CategoriesSelector";
 
 describe("<CategoriesSelector>", () => {
   const categories: CategoriesSelectorProps["categories"] = [

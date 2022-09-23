@@ -12,8 +12,8 @@ export const changes: TimelineEvent = {
   backgroundCategory: "pbe",
   borderCategory: "changes",
   description: "Changes for: Ivern, Aurelion Sol, Sion and more!",
-  endDate: "2022-09-30",
-  startDate: "2022-09-01",
+  endDate: new Date("2022-09-30T00:00:00.000"),
+  startDate: new Date("2022-09-01T00:00:00.000"),
   image: {
     url: "https://assets.5pots.com/file/cincopots/timeline/changes.jpg",
     alt: "Concept art of the Summoner's Rift red side shopkeeper",
