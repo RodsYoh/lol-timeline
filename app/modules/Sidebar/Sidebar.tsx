@@ -9,7 +9,13 @@ import { SidebarContainer } from "./styles";
  * On mobile, this sidebar becomes a header.
  */
 export const Sidebar = () => {
-  const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<Category[]>([
+    "champions",
+    "changes",
+    "pbe",
+    "release",
+    "skins",
+  ]);
 
   function handleChange(category: Category) {
     if (selectedCategories.includes(category)) {
@@ -20,11 +26,9 @@ export const Sidebar = () => {
     }
   }
 
-  console.log(selectedCategories);
-
   return (
     <SidebarContainer>
-      <Logo width="40" />
+      <Logo width="48" />
       <CategoriesSelector
         categories={[
           { value: "skins", label: "Skins" },

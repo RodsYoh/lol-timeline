@@ -8,10 +8,10 @@ export const CategoriesSelectorContainer = styled.section`
   @media ${({ theme }) => theme.screens.lg} {
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
 
   .checkbox {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 `;

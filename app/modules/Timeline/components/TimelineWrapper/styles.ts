@@ -34,7 +34,8 @@ export const CalendarContainer = styled.section`
 
   @media ${({ theme }) => theme.screens.lg} {
     grid-column: 3/13;
-    grid-row: 1/2;
+    grid-row: 1/3;
+    margin-bottom: 20vh;
   }
 `;
 
