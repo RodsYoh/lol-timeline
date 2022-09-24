@@ -24,6 +24,16 @@ export const TabContainer = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &:hover {
+    span {
+      opacity: 0.8;
+    }
+  }
+
+  span {
+    transition: opacity 0.2s ease-out;
+  }
 `;
 
 export const TabGroupContainer = styled.div`

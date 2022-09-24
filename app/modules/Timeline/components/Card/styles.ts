@@ -11,6 +11,22 @@ export const CardContainer = styled.div`
   max-width: 21.5rem;
   position: relative;
 
+  &:hover {
+    .card-background {
+      transform: translate(-50%, -50%) scale(1.02);
+    }
+    .card-frame--background {
+      transform: translate(-49%, -51%) scale(1.02);
+    }
+    .card-frame--border {
+      transform: translate(-51%, -49%);
+    }
+
+    .card-image svg {
+      transform: translate(0.125rem, -0.125rem);
+    }
+  }
+
   .card-background {
     background-color: ${({ theme }) => theme.color.backgroundPrimary};
     border-radius: 2.5rem;
@@ -20,6 +36,7 @@ export const CardContainer = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-out;
   }
 
   .card-image {
@@ -41,6 +58,7 @@ export const CardContainer = styled.div`
       top: 0;
       left: 0;
       z-index: 10;
+      transition: transform 0.2s ease-out;
     }
   }
 
@@ -61,6 +79,7 @@ export const CardContainer = styled.div`
     transform: translate(-50%, -50%);
     width: 100%;
     height: auto;
+    transition: transform 0.2s ease-out;
 
     &--background {
       z-index: -1;
