@@ -1,5 +1,5 @@
-import { Calendar } from "../Calendar";
-import { TimelineHeader } from "../TimelineHeader";
+import { Calendar } from "./components/Calendar";
+import { TimelineHeader } from "./components/TimelineHeader";
 import { CalendarContainer } from "./styles";
 
 export const CalendarWrapper = (props: CalendarWrapperProps) => {

@@ -1,5 +1,5 @@
-import { Card } from "../Card";
-import { CardsContainer } from "./styles";
+import { Card } from "./Card";
+import { CardsContainer } from "../Timeline/styles";
 
 export const CardsWrapper = (props: CardsWrapperProps) => {
   const { data } = props;

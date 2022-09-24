@@ -1,10 +1,7 @@
 import { Sidebar } from "~/modules/Sidebar";
-import {
-  Background,
-  CalendarWrapper,
-  CardsWrapper,
-} from "~/modules/Timeline/components/TimelineWrapper";
 import { Wrapper } from "~/modules/Wrapper/Wrapper";
+import { Background, CalendarWrapper } from "~/modules/Timeline";
+import { CardsWrapper } from "~/modules/Cards/CardsWrapper";
 import { data } from "~/data";
 
 export default function Index() {
