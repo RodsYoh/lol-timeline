@@ -25,14 +25,28 @@ export const DayContainer = styled.div<DayContainerProps>`
   }
 `;
 
-export const CalendarWrapper = styled.div`
+export const CalendarWrapper = styled.div<CalendarWrapperProps>`
   height: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(
+    ${({ daysLength }) => daysLength},
+    calc(5rem + 2px)
+  );
   overflow: scroll;
   margin-top: 1.5rem;
   margin-left: 1rem;
+
+  .background {
+    grid-column: 1/-1;
+    height: 100%;
+    display: flex;
+  }
 `;
 
 interface DayContainerProps {
   isHighlighted?: boolean;
+}
+
+interface CalendarWrapperProps {
+  daysLength: number;
 }

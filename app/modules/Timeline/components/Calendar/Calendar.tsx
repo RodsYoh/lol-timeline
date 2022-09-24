@@ -9,15 +9,17 @@ export const Calendar = (props: CalendarProps) => {
   const days = useMemo(() => getDatesBetween(from, to), [from, to]);
 
   return (
-    <CalendarWrapper role="listbox">
-      {days.map((day) => {
-        const isToday =
-          day.toLocaleDateString() === new Date().toLocaleDateString();
+    <CalendarWrapper role="listbox" daysLength={days.length}>
+      <div className="background">
+        {days.map((day) => {
+          const isToday =
+            day.toLocaleDateString() === new Date().toLocaleDateString();
 
-        return (
-          <Day key={day.toISOString()} day={day} isHighlighted={isToday} />
-        );
-      })}
+          return (
+            <Day key={day.toISOString()} day={day} isHighlighted={isToday} />
+          );
+        })}
+      </div>
     </CalendarWrapper>
   );
 };

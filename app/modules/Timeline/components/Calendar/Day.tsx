@@ -1,8 +1,8 @@
-import { forwardRef, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Typography } from "~/components/Typography";
 import { DayContainer } from "./styles";
 
-export const Day = forwardRef<HTMLDivElement, DayProps>((props, ref) => {
+export const Day = (props: DayProps) => {
   const { day, isHighlighted } = props;
   const test = useRef<HTMLDivElement>(null);
   const localWeekDay = day.toLocaleDateString(undefined, { weekday: "long" });
@@ -25,7 +25,7 @@ export const Day = forwardRef<HTMLDivElement, DayProps>((props, ref) => {
       </Typography>
     </DayContainer>
   );
-});
+};
 
 Day.displayName = "Day";
 
