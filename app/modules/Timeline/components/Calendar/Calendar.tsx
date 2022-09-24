@@ -4,6 +4,10 @@ import { Day } from "./Day";
 import { getDatesBetween } from "./helpers";
 import { CalendarWrapper } from "./styles";
 
+/**
+ * Horizontal calendar that displays the days of the
+ * period between the `from` and `to` dates.
+ */
 export const Calendar = (props: CalendarProps) => {
   const { from, to } = props;
   const days = useMemo(() => getDatesBetween(from, to), [from, to]);

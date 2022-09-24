@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Tab, TabGroup } from "~/components/Tab";
 
+/**
+ * Wrapper of components that interact with the timeline interval.
+ */
 export const TimelineHeader = () => {
   const [selectedTab, setSelectedTab] = useState("normal-calendar");
 

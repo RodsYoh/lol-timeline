@@ -2,6 +2,9 @@ import { Calendar } from "./components/Calendar";
 import { TimelineHeader } from "./components/TimelineHeader";
 import { CalendarContainer } from "./styles";
 
+/**
+ * Container for the events that are displayed on the timeline.
+ */
 export const CalendarWrapper = (props: CalendarWrapperProps) => {
   return (
     <CalendarContainer>

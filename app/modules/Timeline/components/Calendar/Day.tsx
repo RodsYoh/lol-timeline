@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 import { Typography } from "~/components/Typography";
 import { DayContainer } from "./styles";
 
+/**
+ * A single day on the calendar.
+ */
 export const Day = (props: DayProps) => {
   const { day, isHighlighted } = props;
   const test = useRef<HTMLDivElement>(null);
