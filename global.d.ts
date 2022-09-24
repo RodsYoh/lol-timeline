@@ -4,13 +4,21 @@
 type Category = "skins" | "changes" | "champions" | "pbe" | "release" | "rumor";
 
 /**
+ * Name is the champion'sname  with spaces and special characters.
+ * championId is the name of the champion without spaces and special characters.
+ *
+ * @example `{ name: "Cho'Gath"; championId: "ChoGath" }`
+ */
+type Champion = { name: string; championId: string };
+
+/**
  * Event is one item on the timeline or in the card list.
  */
 interface TimelineEvent {
   /**
    * Revelant champions for that event
    */
-  champions?: { name: string; championId: string }[];
+  champions?: Champion[];
   /**
    * Information source
    */
