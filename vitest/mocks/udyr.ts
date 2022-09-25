@@ -33,7 +33,7 @@ export const udyr: TimelineEvent = {
   borderCategory: "champions",
   description: "The Udyr champion update is now testing on the PBE!",
   endDate: new Date("2022-09-20T00:00:00.000"),
-  startDate: new Date("2022-09-10T00:00:00.000"),
+  startDate: new Date("2022-09-13T00:00:00.000"),
   image: {
     url: "https://assets.5pots.com/file/cincopots/timeline/udyr.jpg",
     alt: "Definitely not Udyr splash art with Udyr taking a selfie",
