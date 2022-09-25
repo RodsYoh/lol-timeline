@@ -1,7 +1,5 @@
 import { type ReactNode } from "react";
 import { type CardProps } from "./Card";
-import { EventCard } from "./EventCard";
-import { ExternalCard } from "./ExternalCard";
 
 /**
  * Component that defines if the card will be an external link
@@ -22,7 +20,61 @@ export const CardWrapper = (props: CardWrapperProps) => {
   return <article>{children}</article>;
 };
 
+/**
+ * Component that defines if the card will open additional
+ * cards.
+ */
+export const EventCard = (props: EventCardProps) => {
+  const { children, onEventClick, category } = props;
+
+  return (
+    <button data-testid="event-card" onClick={() => onEventClick(category)}>
+      {children}
+    </button>
+  );
+};
+
+/**
+ * When the timeline card points to an external link,
+ * this component is used
+ */
+export const ExternalCard = (props: ExternalCardProps) => {
+  const { url, children } = props;
+
+  return (
+    <a data-testid="external-card" href={url} target="_blank" rel="noreferrer">
+      {children}
+    </a>
+  );
+};
+
 interface CardWrapperProps extends CardProps {
+  /**
+   * Card content
+   */
+  children: ReactNode;
+}
+
+interface EventCardProps {
+  /**
+   * Event handler to filter sub-events on click
+   */
+  onEventClick: CardProps["onEventClick"];
+  /**
+   * Card content
+   */
+  children: ReactNode;
+  /**
+   * Key of the data object
+   */
+  category: CardProps["category"];
+}
+
+interface ExternalCardProps {
+  /**
+   * URL always existis on this card
+   */
+  url: NonNullable<CardProps["url"]>;
   /**
    * Card content
    */
