@@ -1,5 +1,22 @@
+import { Champion } from "./Champion";
+import { ExtraChampions } from "./ExtraChampions";
+import { ChampionGroupContainer } from "./styles";
+
 export const Champions = (props: ChampionsProps) => {
-  return <div />;
+  const { champions, limit = 4 } = props;
+  const championsToDisplay = limit ? champions.slice(0, limit) : champions;
+  const extraChampionsLength = champions.length - championsToDisplay.length;
+
+  return (
+    <ChampionGroupContainer>
+      {championsToDisplay.map((champ) => (
+        <Champion key={champ.championId} champion={champ} />
+      ))}
+      {extraChampionsLength > 0 && (
+        <ExtraChampions number={extraChampionsLength} />
+      )}
+    </ChampionGroupContainer>
+  );
 };
 
 interface ChampionsProps {

@@ -1,5 +1,5 @@
 import { describe, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "~/test-utils";
 import { Champions } from "../Champions";
 
 const champions: Champion[] = [
@@ -29,7 +29,7 @@ describe("<Champions />", () => {
 
     render(<Champions champions={multipleChampions} />);
 
-    const championPortrait = screen.getAllByTestId("championPortrait");
+    const championPortrait = screen.getAllByTestId("champion-portrait");
     expect(championPortrait).toHaveLength(4);
   });
 
@@ -57,7 +57,7 @@ describe("<Champions />", () => {
 
     render(<Champions champions={multipleChampions} limit={6} />);
 
-    const championPortrait = screen.getAllByTestId("championPortrait");
+    const championPortrait = screen.getAllByTestId("champion-portrait");
     expect(championPortrait).toHaveLength(6);
   });
 });
