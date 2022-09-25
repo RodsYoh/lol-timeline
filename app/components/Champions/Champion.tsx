@@ -1,5 +1,13 @@
 import { ChampionContainer } from "./styles";
 
+/**
+ * Champion's portrait.
+ *
+ * @example
+ * ```
+ * <Champion champion={{championId: "ChoGath", name: "Cho'Gath"}} />
+ * ```
+ */
 export const Champion = (props: ChampionProps) => {
   const { champion } = props;
   const { championId, name } = champion;
@@ -14,5 +22,8 @@ export const Champion = (props: ChampionProps) => {
 };
 
 interface ChampionProps {
+  /**
+   * Champion's name and Id that comes from data dragon.
+   */
   champion: Champion;
 }
