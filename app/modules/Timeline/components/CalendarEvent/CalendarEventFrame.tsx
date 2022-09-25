@@ -9,19 +9,22 @@ export const CalendarEventFrame = (props: CalendarEventFrameProps) => {
 const CalendarSmallEventFrame = (
   props: Omit<CalendarEventFrameProps, "sizeInDays">
 ) => {
-  return <svg data-testid="small-frame" />;
+  return <></>;
+  // return <svg data-testid="small-frame" />;
 };
 
 const CalendarMediumEventFrame = (
   props: Omit<CalendarEventFrameProps, "sizeInDays">
 ) => {
-  return <svg data-testid="medium-frame" />;
+  return <></>;
+  // return <svg data-testid="medium-frame" />;
 };
 
 const CalendarLargeEventFrame = (
   props: Omit<CalendarEventFrameProps, "sizeInDays">
 ) => {
-  return <svg data-testid="large-frame" />;
+  return <></>;
+  // return <svg data-testid="large-frame" />;
 };
 
 interface CalendarEventFrameProps {

@@ -6,12 +6,15 @@ import { CalendarContainer } from "./styles";
  * Container for the events that are displayed on the timeline.
  */
 export const CalendarWrapper = (props: CalendarWrapperProps) => {
+  const { data } = props;
+
   return (
     <CalendarContainer>
       <TimelineHeader />
       <Calendar
         from={new Date("2022-08-10T00:00:00.000")}
         to={new Date("2022-12-01T00:00:00.000")}
+        data={data}
       />
     </CalendarContainer>
   );

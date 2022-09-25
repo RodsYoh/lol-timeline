@@ -1,18 +1,41 @@
 import { type ReactNode } from "react";
 import { type CalendarEventProps } from "./CalendarEvent";
+import { CalendarEventPosition } from "./styles";
 
 /**
  * Component that defines if the event will be an external link
  * or a button to filter sub-events.
  */
 export const CalendarEventWrapper = (props: CalendarEventWrapperProps) => {
-  const { url, subEvents, children, category, onEventClick } = props;
+  const {
+    url,
+    subEvents,
+    children,
+    category,
+    onEventClick,
+    distanceFromStart,
+    sizeInDays,
+  } = props;
 
-  if (url) return <ExternalEvent url={url}>{children}</ExternalEvent>;
+  if (url)
+    return (
+      <ExternalEvent
+        url={url}
+        distanceFromStart={distanceFromStart}
+        sizeInDays={sizeInDays}
+      >
+        {children}
+      </ExternalEvent>
+    );
 
   if (subEvents)
     return (
-      <AnotherEvent category={category} onEventClick={onEventClick}>
+      <AnotherEvent
+        category={category}
+        onEventClick={onEventClick}
+        distanceFromStart={distanceFromStart}
+        sizeInDays={sizeInDays}
+      >
         {children}
       </AnotherEvent>
     );
@@ -25,12 +48,19 @@ export const CalendarEventWrapper = (props: CalendarEventWrapperProps) => {
  * cards on the featured cards section.
  */
 export const AnotherEvent = (props: EventCalendarEventProps) => {
-  const { children, onEventClick, category } = props;
+  const { children, onEventClick, category, distanceFromStart, sizeInDays } =
+    props;
 
   return (
-    <button data-testid="another-event" onClick={() => onEventClick(category)}>
+    <CalendarEventPosition
+      as="button"
+      data-testid="another-event"
+      onClick={() => onEventClick(category)}
+      distanceFromStart={distanceFromStart}
+      sizeInDays={sizeInDays}
+    >
       {children}
-    </button>
+    </CalendarEventPosition>
   );
 };
 
@@ -39,12 +69,21 @@ export const AnotherEvent = (props: EventCalendarEventProps) => {
  * this component is used
  */
 export const ExternalEvent = (props: ExternalCalendarEventProps) => {
-  const { url, children } = props;
+  const { url, children, distanceFromStart, sizeInDays } = props;
 
   return (
-    <a data-testid="external-event" href={url} target="_blank" rel="noreferrer">
+    <CalendarEventPosition
+      as="a"
+      data-testid="external-event"
+      // @ts-ignore
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      distanceFromStart={distanceFromStart}
+      sizeInDays={sizeInDays}
+    >
       {children}
-    </a>
+    </CalendarEventPosition>
   );
 };
 
@@ -53,6 +92,8 @@ interface CalendarEventWrapperProps extends CalendarEventProps {
    * CalendarEvent content
    */
   children: ReactNode;
+  distanceFromStart: number;
+  sizeInDays: number;
 }
 
 interface EventCalendarEventProps {
@@ -68,6 +109,8 @@ interface EventCalendarEventProps {
    * Key of the data object
    */
   category: CalendarEventProps["category"];
+  distanceFromStart: number;
+  sizeInDays: number;
 }
 
 interface ExternalCalendarEventProps {
@@ -79,4 +122,6 @@ interface ExternalCalendarEventProps {
    * CalendarEvent content
    */
   children: ReactNode;
+  distanceFromStart: number;
+  sizeInDays: number;
 }

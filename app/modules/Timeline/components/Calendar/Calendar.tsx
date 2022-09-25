@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { CalendarEvent } from "../CalendarEvent";
 import { Day } from "./Day";
 
 import { getDatesBetween } from "./helpers";
@@ -9,8 +10,15 @@ import { CalendarWrapper } from "./styles";
  * period between the `from` and `to` dates.
  */
 export const Calendar = (props: CalendarProps) => {
-  const { from, to } = props;
+  const { from, to, data } = props;
   const days = useMemo(() => getDatesBetween(from, to), [from, to]);
+
+  const categories = Object.keys(data);
+
+  // TODO: handle global category state
+  function handleCardClick(cat: string) {
+    console.log(cat);
+  }
 
   return (
     <CalendarWrapper role="listbox" daysLength={days.length}>
@@ -24,6 +32,18 @@ export const Calendar = (props: CalendarProps) => {
           );
         })}
       </div>
+      {categories.map((cat) => {
+        const eventData = data[cat];
+        return (
+          <CalendarEvent
+            firstDate={from}
+            key={eventData.description}
+            category={cat}
+            onEventClick={handleCardClick}
+            {...data[cat]}
+          />
+        );
+      })}
     </CalendarWrapper>
   );
 };
@@ -31,4 +51,5 @@ export const Calendar = (props: CalendarProps) => {
 interface CalendarProps {
   from: Date;
   to: Date;
+  data: Record<string, TimelineEvent>;
 }

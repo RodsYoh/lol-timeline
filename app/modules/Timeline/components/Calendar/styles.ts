@@ -35,11 +35,18 @@ export const CalendarWrapper = styled.div<CalendarWrapperProps>`
   overflow: scroll;
   margin-top: 1.5rem;
   margin-left: 1rem;
+  position: relative;
+  grid-auto-rows: 5rem;
+  padding-top: 4rem;
 
   .background {
     grid-column: 1/-1;
-    height: 100%;
+    height: 90%;
     display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
   }
 `;
 

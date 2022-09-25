@@ -72,6 +72,10 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
             }
           }
 
+          a {
+            text-decoration: none;
+          }
+
           button {
             border: none;
             background-color: transparent;

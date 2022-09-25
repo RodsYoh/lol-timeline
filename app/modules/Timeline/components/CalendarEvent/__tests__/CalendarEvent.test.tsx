@@ -9,6 +9,7 @@ describe("<CalendarEvent />", () => {
     it("renders the event title", () => {
       render(
         <CalendarEvent
+          firstDate={new Date()}
           category="udyr"
           {...mockData.udyr}
           onEventClick={vi.fn()}
@@ -22,6 +23,7 @@ describe("<CalendarEvent />", () => {
     it("renders champion's portraits", () => {
       render(
         <CalendarEvent
+          firstDate={new Date()}
           category="udyr"
           {...mockData.udyr}
           onEventClick={vi.fn()}
@@ -35,6 +37,7 @@ describe("<CalendarEvent />", () => {
     it("renders a small frame for events that are less than 3 days long", () => {
       render(
         <CalendarEvent
+          firstDate={new Date()}
           category="patch1219"
           {...mockData.patch1219}
           onEventClick={vi.fn()}
@@ -48,6 +51,7 @@ describe("<CalendarEvent />", () => {
     it("renders a medium frame for events that are less than 8 days long", () => {
       render(
         <CalendarEvent
+          firstDate={new Date()}
           category="udyr"
           {...mockData.udyr}
           onEventClick={vi.fn()}
@@ -61,6 +65,7 @@ describe("<CalendarEvent />", () => {
     it("renders a large frame for events that are more than 8 days long", () => {
       render(
         <CalendarEvent
+          firstDate={new Date()}
           category="changes"
           {...mockData.changes}
           onEventClick={vi.fn()}
@@ -79,6 +84,7 @@ describe("<CalendarEvent />", () => {
     it("has a external url", () => {
       render(
         <CalendarEvent
+          firstDate={new Date()}
           category="udyr"
           {...mockData.udyr.subEvents![0]}
           onEventClick={vi.fn()}
@@ -102,6 +108,7 @@ describe("<CalendarEvent />", () => {
       const onEventClick = vi.fn();
       render(
         <CalendarEvent
+          firstDate={new Date()}
           category="udyr"
           {...mockData.udyr}
           onEventClick={onEventClick}
