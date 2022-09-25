@@ -8,13 +8,13 @@ export const Champions = (props: ChampionsProps) => {
   const extraChampionsLength = champions.length - championsToDisplay.length;
 
   return (
-    <ChampionGroupContainer>
-      {championsToDisplay.map((champ) => (
-        <Champion key={champ.championId} champion={champ} />
-      ))}
+    <ChampionGroupContainer className="champions-group">
       {extraChampionsLength > 0 && (
         <ExtraChampions number={extraChampionsLength} />
       )}
+      {championsToDisplay.map((champ) => (
+        <Champion key={champ.championId} champion={champ} />
+      ))}
     </ChampionGroupContainer>
   );
 };
