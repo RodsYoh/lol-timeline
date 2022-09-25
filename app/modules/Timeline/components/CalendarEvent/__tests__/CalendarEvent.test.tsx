@@ -48,7 +48,7 @@ describe("<CalendarEvent />", () => {
       expect(frame).toBeVisible();
     });
 
-    it("renders a medium frame for events that are less than 8 days long", () => {
+    it("renders a medium frame for events that are less than 14 days long", () => {
       render(
         <CalendarEvent
           firstDate={new Date()}

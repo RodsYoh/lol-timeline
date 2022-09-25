@@ -1,30 +1,48 @@
+import { useTheme } from "@emotion/react";
+import {
+  getRandomEventBackground,
+  getRandomEventFrame,
+  handleSize,
+} from "./helpers";
+import { CalendarEventFrameContainer } from "./styles";
+
 export const CalendarEventFrame = (props: CalendarEventFrameProps) => {
-  const { sizeInDays, ...other } = props;
+  const { sizeInDays, borderCategory, backgroundCategory } = props;
+  const theme = useTheme();
 
-  if (sizeInDays < 3) return <CalendarSmallEventFrame {...other} />;
-  if (sizeInDays < 8) return <CalendarMediumEventFrame {...other} />;
-  return <CalendarLargeEventFrame {...other} />;
-};
+  const size = handleSize(sizeInDays);
 
-const CalendarSmallEventFrame = (
-  props: Omit<CalendarEventFrameProps, "sizeInDays">
-) => {
-  return <></>;
-  // return <svg data-testid="small-frame" />;
-};
-
-const CalendarMediumEventFrame = (
-  props: Omit<CalendarEventFrameProps, "sizeInDays">
-) => {
-  return <></>;
-  // return <svg data-testid="medium-frame" />;
-};
-
-const CalendarLargeEventFrame = (
-  props: Omit<CalendarEventFrameProps, "sizeInDays">
-) => {
-  return <></>;
-  // return <svg data-testid="large-frame" />;
+  return (
+    <>
+      <CalendarEventFrameContainer
+        className="event-background"
+        data-testid={size.dataTestId}
+        viewBox={size.viewBox}
+        preserveAspectRatio="none"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d={getRandomEventBackground(size.size)}
+          fill={theme.color[backgroundCategory]}
+        />
+      </CalendarEventFrameContainer>
+      <CalendarEventFrameContainer
+        className="event-frame"
+        viewBox={size.viewBox}
+        preserveAspectRatio="none"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d={getRandomEventFrame(size.size)}
+          stroke={theme.color[borderCategory]}
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </CalendarEventFrameContainer>
+    </>
+  );
 };
 
 interface CalendarEventFrameProps {

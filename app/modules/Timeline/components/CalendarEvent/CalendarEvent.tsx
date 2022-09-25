@@ -26,12 +26,12 @@ export const CalendarEvent = (props: CalendarEventProps) => {
       sizeInDays={sizeInDays}
     >
       <CalendarEventContainer>
+        <div className="calendar-event-background" />
         <CalendarEventFrame
           sizeInDays={sizeInDays}
           borderCategory={borderCategory}
           backgroundCategory={backgroundCategory}
         />
-        <div className="calendar-event-background" />
         <div className="calendar-event-content">
           <Typography htmlTag="h3">{name}</Typography>
           {champions && <Champions champions={champions} />}

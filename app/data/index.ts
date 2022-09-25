@@ -4,6 +4,6 @@ import { udyr } from "./udyr";
 
 export const data: Record<string, TimelineEvent> = {
   udyr,
-  changes,
   patch1219,
+  changes,
 };

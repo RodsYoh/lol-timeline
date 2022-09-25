@@ -3,6 +3,8 @@ import { screen, render } from "~/test-utils";
 import { Calendar } from "../Calendar";
 import { Day } from "../Day";
 
+import { data as mockData } from "../../../../../../vitest/mocks";
+
 describe("Calendar", () => {
   describe("<Day />", () => {
     it("should render the weekday followed by a number", () => {
@@ -41,7 +43,7 @@ describe("Calendar", () => {
       const from = new Date("2022-09-12T00:00:00.000");
       const to = new Date("2022-09-22T00:00:00.000");
 
-      render(<Calendar from={from} to={to} />);
+      render(<Calendar data={mockData} from={from} to={to} />);
 
       const days = screen.getAllByRole("listitem");
       expect(days).toHaveLength(11);
@@ -52,7 +54,7 @@ describe("Calendar", () => {
       const from = new Date("2022-09-12T00:00:00.000");
       const to = new Date("2022-09-22T00:00:00.000");
 
-      render(<Calendar from={from} to={to} />);
+      render(<Calendar data={mockData} from={from} to={to} />);
 
       const monthName = screen.getByText("September");
       expect(monthName).toBeInTheDocument();
@@ -63,7 +65,7 @@ describe("Calendar", () => {
       const from = new Date("2022-09-28T00:00:00.000");
       const to = new Date("2022-10-02T00:00:00.000");
 
-      render(<Calendar from={from} to={to} />);
+      render(<Calendar data={mockData} from={from} to={to} />);
 
       const monthName = screen.getByText("October");
       expect(monthName).toBeInTheDocument();

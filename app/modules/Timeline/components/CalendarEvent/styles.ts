@@ -5,8 +5,9 @@ export const CalendarEventContainer = styled.div`
 
   .calendar-event-background {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     background-color: ${({ theme }) => theme.color.backgroundPrimary};
@@ -20,19 +21,47 @@ export const CalendarEventContainer = styled.div`
     align-items: center;
     position: relative;
     z-index: 10;
-    padding: 0.5rem 1rem;
+    padding: 0rem 1rem;
   }
 `;
 
 export const CalendarEventPosition = styled.div<CalendarEventPositionProps>`
-  height: 4rem;
-  margin: 0 0.125rem;
+  margin: 0.5rem 0.125rem;
 
   grid-column: ${({ distanceFromStart }) => distanceFromStart + 1} / span
     ${({ sizeInDays }) => sizeInDays + 1};
 `;
 
+export const CalendarEventFrameContainer = styled.svg`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 1.5rem);
+  height: calc(100% + 1.5rem);
+
+  &.small {
+  }
+
+  &.medium {
+  }
+
+  &.large {
+  }
+
+  &.event-frame {
+    z-index: 10;
+  }
+
+  &.event-background {
+    z-index: -1;
+  }
+`;
+
 interface CalendarEventPositionProps {
   distanceFromStart: number;
   sizeInDays: number;
+  href?: string;
+  target?: string;
+  rel?: string;
 }
