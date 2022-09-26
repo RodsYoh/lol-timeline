@@ -1,6 +1,7 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-export const CalendarEventContainer = styled.div`
+export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
   position: relative;
 
   .calendar-event-background {
@@ -17,11 +18,22 @@ export const CalendarEventContainer = styled.div`
 
   .calendar-event-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    padding: 0rem 1rem;
     position: relative;
     z-index: 10;
-    padding: 0rem 1rem;
+
+    .champions {
+      position: sticky;
+      left: 2rem;
+      margin-left: 1rem;
+      margin-right: calc(${({ titleWidth }) => titleWidth}px + 0.5rem);
+    }
+
+    h3 {
+      position: sticky;
+      left: calc(${({ championsWidth }) => championsWidth}px + 2.5rem);
+    }
   }
 `;
 
@@ -57,6 +69,12 @@ export const CalendarEventFrameContainer = styled.svg`
     z-index: -1;
   }
 `;
+
+interface CalendarEventContainerProps {
+  numberOfChampions: number;
+  championsWidth: number;
+  titleWidth: number;
+}
 
 interface CalendarEventPositionProps {
   distanceFromStart: number;

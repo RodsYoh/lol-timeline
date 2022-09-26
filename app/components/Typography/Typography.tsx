@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { forwardRef } from "react";
 import { TextContainer } from "./styles";
 
 /**
@@ -9,18 +10,23 @@ import { TextContainer } from "./styles";
  * <Typography htmlTag="h2" variant="heading">
  * ```
  */
-export const Typography = (props: TypographyProps) => {
-  const { variant = "paragraph", htmlTag = "span", className } = props;
+export const Typography = forwardRef<HTMLDivElement, TypographyProps>(
+  (props: TypographyProps, ref) => {
+    const { variant = "paragraph", htmlTag = "span", className } = props;
 
-  return (
-    <TextContainer
-      as={htmlTag}
-      variant={variant}
-      className={clsx(variant, className, "typography")}
-      {...props}
-    />
-  );
-};
+    return (
+      <TextContainer
+        ref={ref}
+        as={htmlTag}
+        variant={variant}
+        className={clsx(variant, className, "typography")}
+        {...props}
+      />
+    );
+  }
+);
+
+Typography.displayName = "Typography";
 
 export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   /**

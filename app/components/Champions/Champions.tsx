@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { Champion } from "./Champion";
 import { ExtraChampions } from "./ExtraChampions";
 import { ChampionGroupContainer } from "./styles";
@@ -19,24 +20,28 @@ import { ChampionGroupContainer } from "./styles";
  * />
  * ```
  */
-export const Champions = (props: ChampionsProps) => {
-  const { champions, limit = 4 } = props;
-  const championsToDisplay = limit ? champions.slice(0, limit) : champions;
-  const extraChampionsLength = champions.length - championsToDisplay.length;
+export const Champions = forwardRef<HTMLDivElement, ChampionsProps>(
+  (props: ChampionsProps, ref) => {
+    const { champions, limit = 4, ...other } = props;
+    const championsToDisplay = limit ? champions.slice(0, limit) : champions;
+    const extraChampionsLength = champions.length - championsToDisplay.length;
 
-  return (
-    <ChampionGroupContainer className="champions-group">
-      {extraChampionsLength > 0 && (
-        <ExtraChampions number={extraChampionsLength} />
-      )}
-      {championsToDisplay.map((champ) => (
-        <Champion key={champ.championId} champion={champ} />
-      ))}
-    </ChampionGroupContainer>
-  );
-};
+    return (
+      <ChampionGroupContainer className="champions-group" {...other} ref={ref}>
+        {extraChampionsLength > 0 && (
+          <ExtraChampions number={extraChampionsLength} />
+        )}
+        {championsToDisplay.map((champ) => (
+          <Champion key={champ.championId} champion={champ} />
+        ))}
+      </ChampionGroupContainer>
+    );
+  }
+);
 
-interface ChampionsProps {
+Champions.displayName = "Champions";
+
+interface ChampionsProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * Array of champions' names and Ids that comes from data dragon.
    */

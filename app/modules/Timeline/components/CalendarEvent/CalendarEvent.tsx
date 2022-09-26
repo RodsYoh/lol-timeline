@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Champions } from "~/components/Champions";
 import { Typography } from "~/components/Typography";
 import { CalendarEventFrame } from "./CalendarEventFrame";
@@ -15,9 +16,23 @@ export const CalendarEvent = (props: CalendarEventProps) => {
     borderCategory,
     firstDate,
   } = props;
+  const championsRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [stickyComponentsWidth, setStickyComponentsWidth] = useState({
+    champions: 0,
+    title: 0,
+  });
 
   const sizeInDays = getDaysBetweenDates(startDate, endDate);
   const distanceFromStart = getDaysBetweenDates(firstDate, startDate);
+
+  console.log("aaaa", championsRef.current?.clientWidth);
+  useEffect(() => {
+    const championsWidth = championsRef.current?.clientWidth || 0;
+    const titleWidth = titleRef.current?.clientWidth || 0;
+
+    setStickyComponentsWidth({ champions: championsWidth, title: titleWidth });
+  }, [championsRef.current, titleRef.current]);
 
   return (
     <CalendarEventWrapper
@@ -25,7 +40,11 @@ export const CalendarEvent = (props: CalendarEventProps) => {
       distanceFromStart={distanceFromStart}
       sizeInDays={sizeInDays}
     >
-      <CalendarEventContainer>
+      <CalendarEventContainer
+        numberOfChampions={champions?.length || 0}
+        championsWidth={stickyComponentsWidth.champions}
+        titleWidth={stickyComponentsWidth.title}
+      >
         <div className="calendar-event-background" />
         <CalendarEventFrame
           sizeInDays={sizeInDays}
@@ -33,8 +52,16 @@ export const CalendarEvent = (props: CalendarEventProps) => {
           backgroundCategory={backgroundCategory}
         />
         <div className="calendar-event-content">
-          <Typography htmlTag="h3">{name}</Typography>
-          {champions && <Champions champions={champions} />}
+          {champions && (
+            <Champions
+              champions={champions}
+              className="champions"
+              ref={championsRef}
+            />
+          )}
+          <Typography htmlTag="h3" ref={titleRef}>
+            {name}
+          </Typography>
         </div>
       </CalendarEventContainer>
     </CalendarEventWrapper>
