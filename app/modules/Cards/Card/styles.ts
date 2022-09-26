@@ -37,6 +37,7 @@ export const CardContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     transition: transform 0.2s ease-out;
+    z-index: 80;
   }
 
   .card-image {
@@ -45,6 +46,7 @@ export const CardContainer = styled.div`
     position: relative;
     border-radius: 20%;
     margin-right: 2rem;
+    z-index: 90;
 
     img {
       border-radius: 20%;
@@ -65,7 +67,7 @@ export const CardContainer = styled.div`
   .card-text {
     text-align: left;
     position: relative;
-    z-index: 10;
+    z-index: 100;
     h2 {
       margin-bottom: 1rem;
       text-transform: uppercase;
@@ -82,7 +84,7 @@ export const CardContainer = styled.div`
     transition: transform 0.2s ease-out;
 
     &--background {
-      z-index: -1;
+      z-index: 10;
     }
 
     &--border {
