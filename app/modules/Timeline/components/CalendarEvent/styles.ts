@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
@@ -52,6 +51,7 @@ export const CalendarEventFrameContainer = styled.svg`
   width: calc(100% + 1.5rem);
   height: calc(100% + 1.5rem);
 
+  // TODO: svg specific width and height if needed
   &.small {
   }
 
@@ -71,15 +71,37 @@ export const CalendarEventFrameContainer = styled.svg`
 `;
 
 interface CalendarEventContainerProps {
-  numberOfChampions: number;
+  /**
+   * The width of the champion's container in pixels
+   */
   championsWidth: number;
+  /**
+   * The width of the title in pixels.
+   */
   titleWidth: number;
 }
 
 interface CalendarEventPositionProps {
+  /**
+   * The distance from the start of the calendar in days.
+   * To be used as the grid-column-start value.
+   */
   distanceFromStart: number;
+  /**
+   * The size of the event in days.
+   * To be used as the grid-column-span value.
+   */
   sizeInDays: number;
+  /**
+   * External link
+   */
   href?: string;
+  /**
+   * Link `target` attribute.
+   */
   target?: string;
+  /**
+   * Link `rel` attribute.
+   */
   rel?: string;
 }

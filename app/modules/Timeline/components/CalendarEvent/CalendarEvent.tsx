@@ -6,6 +6,9 @@ import { CalendarEventWrapper } from "./CalendarEventWrapper";
 import { getDaysBetweenDates } from "./helpers";
 import { CalendarEventContainer } from "./styles";
 
+/**
+ * Component that displays a calendar event in the timeline.
+ */
 export const CalendarEvent = (props: CalendarEventProps) => {
   const {
     name,
@@ -26,13 +29,12 @@ export const CalendarEvent = (props: CalendarEventProps) => {
   const sizeInDays = getDaysBetweenDates(startDate, endDate);
   const distanceFromStart = getDaysBetweenDates(firstDate, startDate);
 
-  console.log("aaaa", championsRef.current?.clientWidth);
   useEffect(() => {
     const championsWidth = championsRef.current?.clientWidth || 0;
     const titleWidth = titleRef.current?.clientWidth || 0;
 
     setStickyComponentsWidth({ champions: championsWidth, title: titleWidth });
-  }, [championsRef.current, titleRef.current]);
+  }, []);
 
   return (
     <CalendarEventWrapper
@@ -41,7 +43,6 @@ export const CalendarEvent = (props: CalendarEventProps) => {
       sizeInDays={sizeInDays}
     >
       <CalendarEventContainer
-        numberOfChampions={champions?.length || 0}
         championsWidth={stickyComponentsWidth.champions}
         titleWidth={stickyComponentsWidth.title}
       >
@@ -77,5 +78,8 @@ export interface CalendarEventProps extends TimelineEvent {
    * Key of the data object
    */
   category: string;
+  /**
+   * First date of the timeline
+   */
   firstDate: Date;
 }

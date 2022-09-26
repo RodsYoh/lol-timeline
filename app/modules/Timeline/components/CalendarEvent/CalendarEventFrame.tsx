@@ -6,6 +6,9 @@ import {
 } from "./helpers";
 import { CalendarEventFrameContainer } from "./styles";
 
+/**
+ * Component that displays a frame around the calendar event.
+ */
 export const CalendarEventFrame = (props: CalendarEventFrameProps) => {
   const { sizeInDays, borderCategory, backgroundCategory } = props;
   const theme = useTheme();
