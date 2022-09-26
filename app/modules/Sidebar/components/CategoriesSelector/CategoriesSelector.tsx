@@ -1,4 +1,5 @@
 import { Checkbox } from "~/components/Checkbox";
+import { Typography } from "~/components/Typography";
 import { CategoriesSelectorContainer } from "./styles";
 
 /**
@@ -10,13 +11,21 @@ export const CategoriesSelector = (props: CategoriesSelectorProps) => {
 
   return (
     <CategoriesSelectorContainer>
+      <Typography isDisabled>
+        <strong>
+          WIP!
+          <br />
+          Trabalhando nos filtros...
+        </strong>
+      </Typography>
       {categories.map((category) => (
         <Checkbox
           key={category.value}
-          onClick={() => handleCategoryClick(category.value)}
+          // onClick={() => handleCategoryClick(category.value)}
           label={category.label}
           checked={selectedCategories.includes(category.value)}
           category={category.value}
+          isDisabled
         />
       ))}
     </CategoriesSelectorContainer>

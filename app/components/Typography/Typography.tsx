@@ -12,14 +12,24 @@ import { TextContainer } from "./styles";
  */
 export const Typography = forwardRef<HTMLDivElement, TypographyProps>(
   (props: TypographyProps, ref) => {
-    const { variant = "paragraph", htmlTag = "span", className } = props;
+    const {
+      variant = "paragraph",
+      htmlTag = "span",
+      className,
+      isDisabled = false,
+    } = props;
 
     return (
       <TextContainer
         ref={ref}
         as={htmlTag}
         variant={variant}
-        className={clsx(variant, className, "typography")}
+        className={clsx(
+          "typography",
+          variant,
+          className,
+          isDisabled && "disabled"
+        )}
         {...props}
       />
     );
@@ -41,4 +51,8 @@ export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
    * Text content of the component
    */
   children: React.ReactNode;
+  /**
+   * If true, the text will have a different color.
+   */
+  isDisabled?: boolean;
 }

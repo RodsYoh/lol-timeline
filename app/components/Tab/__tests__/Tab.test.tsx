@@ -67,6 +67,27 @@ describe("Tab", () => {
       });
       expect(tab).toBeVisible();
     });
+
+    it("is currently disabled", async () => {
+      const onChange = vi.fn();
+      const user = userEvent.setup();
+      render(
+        <TabContext.Provider
+          value={{ onChange, currentlySelected: "im-a-tab" }}
+        >
+          <Tab value="im-a-tab" isDisabled>
+            I'm a tab!
+          </Tab>
+        </TabContext.Provider>
+      );
+
+      const tab = screen.getByRole("tab", {
+        name: "I'm a tab!",
+      });
+      user.click(tab);
+
+      expect(onChange).not.toBeCalled();
+    });
   });
 
   describe("<TabGroup />", () => {

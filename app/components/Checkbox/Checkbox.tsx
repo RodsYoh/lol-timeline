@@ -15,7 +15,14 @@ import { CheckboxContainer } from "./styles";
  * ```
  */
 export const Checkbox = (props: CheckboxProps) => {
-  const { label, category = "rumor", checked, id, ...other } = props;
+  const {
+    label,
+    category = "rumor",
+    checked,
+    id,
+    isDisabled = false,
+    ...other
+  } = props;
   const theme = useTheme();
 
   const background = useMemo(getRandomCheckboxBackground, []);
@@ -47,6 +54,7 @@ export const Checkbox = (props: CheckboxProps) => {
         data-testid="teste"
         type="checkbox"
         defaultChecked={checked}
+        disabled={isDisabled}
         {...other}
       />
     </CheckboxContainer>
@@ -64,4 +72,9 @@ export interface CheckboxProps
    * Category that defines the checkbox color
    */
   category?: Category;
+  /**
+   * If true, the checkbox can't be changed
+   * and will be rendered as greyed out.
+   */
+  isDisabled?: boolean;
 }

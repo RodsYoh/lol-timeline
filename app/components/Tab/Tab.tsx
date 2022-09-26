@@ -16,7 +16,7 @@ import { TabIndicator } from "./TabIndicator";
  * ```
  */
 export const Tab = (props: TabProps) => {
-  const { children, value } = props;
+  const { children, value, isDisabled = false } = props;
   const { onChange, currentlySelected } = useContext(TabContext);
   const isActive = currentlySelected === value;
 
@@ -24,10 +24,12 @@ export const Tab = (props: TabProps) => {
     <TabContainer
       role="tab"
       aria-selected={isActive}
-      onClick={(e) => onChange(e, value)}
+      onClick={!isDisabled ? (e) => onChange(e, value) : undefined}
     >
-      <Typography variant="paragraph">{children}</Typography>
-      {isActive && <TabIndicator />}
+      <Typography variant="paragraph" isDisabled={isDisabled}>
+        {children}
+      </Typography>
+      {isActive && <TabIndicator isDisabled={isDisabled} />}
     </TabContainer>
   );
 };
@@ -41,4 +43,8 @@ interface TabProps extends React.HTMLAttributes<HTMLElement> {
    * Tab value that will be returned on the `onChange` function.
    */
   value: string;
+  /**
+   * If true, the tab wont run the `onChange` function.
+   */
+  isDisabled?: boolean;
 }

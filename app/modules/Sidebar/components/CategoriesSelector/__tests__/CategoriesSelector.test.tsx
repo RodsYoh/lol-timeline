@@ -43,7 +43,8 @@ describe("<CategoriesSelector>", () => {
     expect(checkedCheckbox).toBeInTheDocument();
   });
 
-  it("returns the checkbox value when clicked", async () => {
+  // Currently disabled for first release
+  it.skip("returns the checkbox value when clicked", async () => {
     const user = userEvent.setup();
 
     const onClick = vi.fn((val) => val);

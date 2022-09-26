@@ -14,8 +14,12 @@ export const TimelineHeader = () => {
   return (
     <div>
       <TabGroup currentlySelected={selectedTab} onChange={handleTabChange}>
-        <Tab value="normal-calendar">Calendário</Tab>
-        <Tab value="current-patch">Atualização 19.20</Tab>
+        <Tab value="normal-calendar" isDisabled>
+          Calendário
+        </Tab>
+        <Tab value="current-patch" isDisabled>
+          Atualização 19.20
+        </Tab>
       </TabGroup>
     </div>
   );

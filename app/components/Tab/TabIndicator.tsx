@@ -11,7 +11,8 @@ import { IndicatorContainer } from "./styles";
  * <TabIndicator />
  * ```
  */
-export const TabIndicator = () => {
+export const TabIndicator = (props: TabIndicatorProps) => {
+  const { isDisabled } = props;
   const theme = useTheme();
 
   return (
@@ -23,10 +24,19 @@ export const TabIndicator = () => {
     >
       <path
         d={getTabIndicator()}
-        stroke={theme.color.highlight}
+        stroke={
+          isDisabled ? theme.color.backgroundSecondary : theme.color.highlight
+        }
         strokeWidth="2"
         strokeLinecap="round"
       />
     </IndicatorContainer>
   );
 };
+
+interface TabIndicatorProps {
+  /**
+   * If true, the indicator will be greyed out.
+   */
+  isDisabled?: boolean;
+}
