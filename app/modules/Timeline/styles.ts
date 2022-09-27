@@ -37,7 +37,7 @@ export const CalendarContainer = styled.section`
     grid-column: 3/13;
     grid-row: 1/3;
     margin-bottom: 20vh;
-    padding: 1.5rem 2rem;
+    padding: 2% 2.5%;
   }
 `;
 

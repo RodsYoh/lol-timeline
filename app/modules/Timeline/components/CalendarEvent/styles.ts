@@ -29,8 +29,8 @@ export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
       margin-right: calc(${({ titleWidth }) => titleWidth}px);
 
       @media ${({ theme }) => theme.screens.lg} {
-        left: 1rem;
-        margin-right: calc(${({ titleWidth }) => titleWidth}px + 0.5rem);
+        left: 0rem;
+        margin-right: calc(${({ titleWidth }) => titleWidth}px - 2rem);
       }
     }
 
@@ -46,7 +46,7 @@ export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
 `;
 
 export const CalendarEventPosition = styled.div<CalendarEventPositionProps>`
-  margin: 0.75rem 0.5rem;
+  margin: 1rem 0.5rem;
 
   grid-column: ${({ distanceFromStart }) => distanceFromStart + 1} / span
     ${({ sizeInDays }) => sizeInDays + 1};

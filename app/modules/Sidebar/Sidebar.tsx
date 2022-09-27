@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Logo } from "~/components/Logo/Logo";
 import { CategoriesSelector } from "./components/CategoriesSelector/CategoriesSelector";
+import { Social } from "./components/Social/Social";
 import { SidebarContainer } from "./styles";
 
 /**
@@ -42,6 +43,7 @@ export const Sidebar = () => {
         handleCategoryClick={handleChange}
         selectedCategories={selectedCategories}
       />
+      <Social />
     </SidebarContainer>
   );
 };

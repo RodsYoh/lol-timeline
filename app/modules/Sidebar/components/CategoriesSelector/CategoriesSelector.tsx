@@ -12,13 +12,6 @@ export const CategoriesSelector = (props: CategoriesSelectorProps) => {
 
   return (
     <CategoriesSelectorContainer>
-      <Typography htmlTag="p">
-        <strong>
-          WIP!
-          <br />
-          Trabalhando nos filtros...
-        </strong>
-      </Typography>
       <div className="checkbox-group">
         {categories.map((category) => (
           <Checkbox

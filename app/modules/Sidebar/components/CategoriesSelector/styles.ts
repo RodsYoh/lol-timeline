@@ -6,11 +6,6 @@ export const CategoriesSelectorContainer = styled.section`
   align-items: center;
   text-align: center;
 
-  & > p {
-    margin-top: 1rem;
-    opacity: 0.5;
-  }
-
   @media ${({ theme }) => theme.screens.lg} {
     align-items: flex-start;
     text-align: left;
@@ -20,6 +15,7 @@ export const CategoriesSelectorContainer = styled.section`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 1rem;
 
     @media ${({ theme }) => theme.screens.lg} {
       flex-direction: column;
@@ -33,6 +29,10 @@ export const CategoriesSelectorContainer = styled.section`
 
     @media ${({ theme }) => theme.screens.lg} {
       margin-top: 0;
+
+      &:not(:first-of-type) {
+        margin-top: 0.75rem;
+      }
     }
   }
 
