@@ -13,6 +13,9 @@ export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "5Pots",
   viewport: "width=device-width,initial-scale=1",
+  description: "Calendário com as novidades de League of Legends",
+  "theme-color": "#141529",
+  image: "/thumb.jpg",
 });
 
 export default function App() {
