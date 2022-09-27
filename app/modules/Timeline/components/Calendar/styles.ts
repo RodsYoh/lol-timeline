@@ -32,7 +32,7 @@ export const CalendarWrapper = styled.div<CalendarWrapperProps>`
     ${({ daysLength }) => daysLength},
     calc(5rem + 2px)
   );
-  overflow: scroll;
+  overflow-x: scroll;
   margin-top: 1.5rem;
   margin-left: 1rem;
   position: relative;
