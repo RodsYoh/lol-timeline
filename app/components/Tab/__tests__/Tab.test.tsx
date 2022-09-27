@@ -10,7 +10,11 @@ describe("Tab", () => {
     it("renders a title", () => {
       render(
         <TabContext.Provider
-          value={{ onChange: vi.fn(), currentlySelected: "im-a-tab" }}
+          value={{
+            onChange: vi.fn(),
+            currentlySelected: "im-a-tab",
+            priority: "primary",
+          }}
         >
           <Tab value="im-a-tab">I'm a tab!</Tab>
         </TabContext.Provider>
@@ -25,7 +29,11 @@ describe("Tab", () => {
       const user = userEvent.setup();
       render(
         <TabContext.Provider
-          value={{ onChange, currentlySelected: "im-a-tab" }}
+          value={{
+            onChange,
+            currentlySelected: "im-a-tab",
+            priority: "primary",
+          }}
         >
           <Tab value="im-a-tab">I'm a tab!</Tab>
         </TabContext.Provider>
@@ -40,7 +48,11 @@ describe("Tab", () => {
     it("is currently selected", () => {
       render(
         <TabContext.Provider
-          value={{ onChange: vi.fn(), currentlySelected: "im-a-tab" }}
+          value={{
+            onChange: vi.fn(),
+            currentlySelected: "im-a-tab",
+            priority: "primary",
+          }}
         >
           <Tab value="im-a-tab">I'm a tab!</Tab>
         </TabContext.Provider>
@@ -55,7 +67,11 @@ describe("Tab", () => {
     it("is currently not selected", () => {
       render(
         <TabContext.Provider
-          value={{ onChange: vi.fn(), currentlySelected: "im-another-tab" }}
+          value={{
+            onChange: vi.fn(),
+            currentlySelected: "im-another-tab",
+            priority: "primary",
+          }}
         >
           <Tab value="im-a-tab">I'm a tab!</Tab>
         </TabContext.Provider>
@@ -73,7 +89,11 @@ describe("Tab", () => {
       const user = userEvent.setup();
       render(
         <TabContext.Provider
-          value={{ onChange, currentlySelected: "im-a-tab" }}
+          value={{
+            onChange,
+            currentlySelected: "im-a-tab",
+            priority: "primary",
+          }}
         >
           <Tab value="im-a-tab" isDisabled>
             I'm a tab!

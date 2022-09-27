@@ -17,7 +17,7 @@ import { TabIndicator } from "./TabIndicator";
  */
 export const Tab = (props: TabProps) => {
   const { children, value, isDisabled = false } = props;
-  const { onChange, currentlySelected } = useContext(TabContext);
+  const { onChange, currentlySelected, priority } = useContext(TabContext);
   const isActive = currentlySelected === value;
 
   return (
@@ -25,6 +25,7 @@ export const Tab = (props: TabProps) => {
       role="tab"
       aria-selected={isActive}
       onClick={!isDisabled ? (e) => onChange(e, value) : undefined}
+      priotity={priority}
     >
       <Typography variant="paragraph" isDisabled={isDisabled}>
         {children}

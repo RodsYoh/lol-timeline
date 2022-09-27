@@ -23,9 +23,15 @@ import { TabGroupContainer } from "./styles";
  * ```
  */
 export const TabGroup = (props: TabGroupProps) => {
-  const { children, onChange, currentlySelected, ...other } = props;
+  const {
+    children,
+    onChange,
+    currentlySelected,
+    priority = "primary",
+    ...other
+  } = props;
   return (
-    <TabContext.Provider value={{ onChange, currentlySelected }}>
+    <TabContext.Provider value={{ onChange, currentlySelected, priority }}>
       <TabGroupContainer role="tablist" {...other}>
         {children}
       </TabGroupContainer>
@@ -36,6 +42,7 @@ export const TabGroup = (props: TabGroupProps) => {
 export const TabContext = createContext<TabContextProps>({
   onChange: () => null,
   currentlySelected: "",
+  priority: "primary",
 });
 
 interface TabGroupProps
@@ -52,6 +59,10 @@ interface TabGroupProps
    * <Tab /> components that will be rendered inside the group.
    */
   children: React.ReactNode;
+  /**
+   * Indicates the background color of the tab group.
+   */
+  priority?: "primary" | "secondary";
 }
 
 interface TabContextProps {
@@ -63,4 +74,8 @@ interface TabContextProps {
    * Value of the currently selected tab.
    */
   currentlySelected: TabGroupProps["currentlySelected"];
+  /**
+   * Indicates the background color of the tab group.
+   */
+  priority: NonNullable<TabGroupProps["priority"]>;
 }

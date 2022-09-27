@@ -37,7 +37,11 @@ export const CalendarWrapper = styled.div<CalendarWrapperProps>`
   margin-left: 1rem;
   position: relative;
   grid-auto-rows: 5rem;
-  padding: 4rem 1.5rem 0 1.5rem;
+  padding: 0 1rem;
+
+  @media ${({ theme }) => theme.screens.lg} {
+    padding: 4rem 1.5rem 0 1.5rem;
+  }
 
   .background {
     grid-column: 1/-1;

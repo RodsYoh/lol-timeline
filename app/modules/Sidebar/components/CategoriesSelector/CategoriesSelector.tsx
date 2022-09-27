@@ -1,4 +1,5 @@
 import { Checkbox } from "~/components/Checkbox";
+import { Tab, TabGroup } from "~/components/Tab";
 import { Typography } from "~/components/Typography";
 import { CategoriesSelectorContainer } from "./styles";
 
@@ -18,16 +19,30 @@ export const CategoriesSelector = (props: CategoriesSelectorProps) => {
           Trabalhando nos filtros...
         </strong>
       </Typography>
-      {categories.map((category) => (
-        <Checkbox
-          key={category.value}
-          // onClick={() => handleCategoryClick(category.value)}
-          label={category.label}
-          checked={selectedCategories.includes(category.value)}
-          category={category.value}
-          isDisabled
-        />
-      ))}
+      <div className="checkbox-group">
+        {categories.map((category) => (
+          <Checkbox
+            key={category.value}
+            // onClick={() => handleCategoryClick(category.value)}
+            label={category.label}
+            checked={selectedCategories.includes(category.value)}
+            category={category.value}
+            isDisabled
+          />
+        ))}
+      </div>
+      <TabGroup
+        currentlySelected="normal-calendar"
+        onChange={console.log}
+        className="time-window-selector"
+      >
+        <Tab value="normal-calendar" isDisabled>
+          Calendário
+        </Tab>
+        <Tab value="current-patch" isDisabled>
+          Atualização 19.20
+        </Tab>
+      </TabGroup>
     </CategoriesSelectorContainer>
   );
 };

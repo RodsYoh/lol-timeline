@@ -17,10 +17,13 @@ export const IndicatorContainer = styled.svg`
   }
 `;
 
-export const TabContainer = styled.button`
+export const TabContainer = styled.button<TabContainerProps>`
   padding: 0.75rem 1rem 0.25rem 1rem;
   min-width: 10rem;
-  background-color: ${({ theme }) => theme.color.backgroundPrimary};
+  background-color: ${({ theme, priotity }) =>
+    priotity === "secondary"
+      ? theme.color.backgroundSecondary
+      : theme.color.backgroundPrimary};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,3 +42,7 @@ export const TabContainer = styled.button`
 export const TabGroupContainer = styled.div`
   display: flex;
 `;
+
+interface TabContainerProps {
+  priotity: "primary" | "secondary";
+}

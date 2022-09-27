@@ -24,14 +24,23 @@ export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
 
     .champions {
       position: sticky;
-      left: 2rem;
+      left: 0.125rem;
       margin-left: 1rem;
-      margin-right: calc(${({ titleWidth }) => titleWidth}px + 0.5rem);
+      margin-right: calc(${({ titleWidth }) => titleWidth}px);
+
+      @media ${({ theme }) => theme.screens.lg} {
+        left: 1rem;
+        margin-right: calc(${({ titleWidth }) => titleWidth}px + 0.5rem);
+      }
     }
 
     h3 {
       position: sticky;
-      left: calc(${({ championsWidth }) => championsWidth}px + 2.5rem);
+      left: calc(${({ championsWidth }) => championsWidth}px + 0.5rem);
+
+      @media ${({ theme }) => theme.screens.lg} {
+        left: calc(${({ championsWidth }) => championsWidth}px + 2.5rem);
+      }
     }
   }
 `;
