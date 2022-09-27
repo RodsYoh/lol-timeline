@@ -7,7 +7,7 @@ export const EventCardContainer = styled.div``;
 export const CardContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   max-width: 21.5rem;
   position: relative;
 
@@ -31,7 +31,7 @@ export const CardContainer = styled.div`
     background-color: ${({ theme }) => theme.color.backgroundPrimary};
     border-radius: 2.5rem;
     position: absolute;
-    width: calc(100% - 1rem);
+    width: calc(100% - 1.75rem);
     height: 100%;
     top: 50%;
     left: 50%;

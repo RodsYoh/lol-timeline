@@ -46,7 +46,7 @@ export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
 `;
 
 export const CalendarEventPosition = styled.div<CalendarEventPositionProps>`
-  margin: 0.5rem 0.125rem;
+  margin: 0.75rem 0.5rem;
 
   grid-column: ${({ distanceFromStart }) => distanceFromStart + 1} / span
     ${({ sizeInDays }) => sizeInDays + 1};

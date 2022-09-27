@@ -42,11 +42,26 @@ export const CalendarContainer = styled.section`
 `;
 
 export const CardsContainer = styled.section`
-  grid-column: 1/13;
+  grid-column: 1/-1;
   grid-row: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: scroll;
+
+  & > *:not(:last-child) {
+    margin-bottom: 1rem;
+
+    @media ${({ theme }) => theme.screens.lg} {
+      margin-right: 1rem;
+    }
+  }
 
   @media ${({ theme }) => theme.screens.lg} {
     grid-column: 2/13;
     grid-row: 2/3;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 `;

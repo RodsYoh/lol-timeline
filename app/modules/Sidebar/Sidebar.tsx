@@ -15,6 +15,7 @@ export const Sidebar = () => {
     "pbe",
     "release",
     "skins",
+    "rumor",
   ]);
 
   function handleChange(category: Category) {
