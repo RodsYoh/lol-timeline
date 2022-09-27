@@ -24,7 +24,7 @@ export const Social = () => {
 
       <a
         className="social"
-        href="https://discord.gg/b4VEwAM6"
+        href="https://discord.gg/W4uBUns"
         target="_blank"
         rel="noreferrer"
       >
