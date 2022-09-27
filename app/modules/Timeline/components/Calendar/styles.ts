@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "@emotion/styled";
 
 export const DayContainer = styled.div<DayContainerProps>`
@@ -25,14 +26,13 @@ export const DayContainer = styled.div<DayContainerProps>`
   }
 `;
 
-export const CalendarWrapper = styled.div<CalendarWrapperProps>`
+export const CalendarWrapper = styled(ScrollContainer)<CalendarWrapperProps>`
   height: 100%;
   display: grid;
   grid-template-columns: repeat(
     ${({ daysLength }) => daysLength},
     calc(5rem + 2px)
   );
-  overflow-x: scroll;
   margin-top: 1.5rem;
   margin-left: 1rem;
   position: relative;
@@ -41,6 +41,10 @@ export const CalendarWrapper = styled.div<CalendarWrapperProps>`
 
   @media ${({ theme }) => theme.screens.lg} {
     padding: 4rem 1.5rem 0 1.5rem;
+
+    &:hover {
+      cursor: grab;
+    }
   }
 
   .background {

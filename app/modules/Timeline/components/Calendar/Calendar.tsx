@@ -1,4 +1,6 @@
 import { useMemo } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
+
 import { CalendarEvent } from "../CalendarEvent";
 import { Day } from "./Day";
 
@@ -21,7 +23,7 @@ export const Calendar = (props: CalendarProps) => {
   }
 
   return (
-    <CalendarWrapper role="listbox" daysLength={days.length}>
+    <CalendarWrapper daysLength={days.length}>
       <div className="background">
         {days.map((day) => {
           const isToday =

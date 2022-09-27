@@ -11,8 +11,6 @@ export const CalendarWrapper = (props: CalendarWrapperProps) => {
 
   const dates = getMinMaxDate(Object.values(data));
 
-  console.log(dates);
-
   return (
     <CalendarContainer>
       <TimelineHeader />
