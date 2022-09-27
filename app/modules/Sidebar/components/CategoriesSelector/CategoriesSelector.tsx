@@ -12,7 +12,7 @@ export const CategoriesSelector = (props: CategoriesSelectorProps) => {
 
   return (
     <CategoriesSelectorContainer>
-      <Typography isDisabled>
+      <Typography htmlTag="p">
         <strong>
           WIP!
           <br />

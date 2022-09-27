@@ -6,6 +6,11 @@ export const CategoriesSelectorContainer = styled.section`
   align-items: center;
   text-align: center;
 
+  & > p {
+    margin-top: 1rem;
+    opacity: 0.5;
+  }
+
   @media ${({ theme }) => theme.screens.lg} {
     align-items: flex-start;
     text-align: left;
@@ -25,6 +30,10 @@ export const CategoriesSelectorContainer = styled.section`
 
   .checkbox {
     margin-top: 1rem;
+
+    @media ${({ theme }) => theme.screens.lg} {
+      margin-top: 0;
+    }
   }
 
   .time-window-selector {
