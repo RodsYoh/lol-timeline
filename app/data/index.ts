@@ -6,16 +6,18 @@ import { skins } from "./skins";
 import { bewitching } from "./bewitching";
 import { mecha } from "./mecha";
 import { empyrean } from "./empyrean";
+import { ksante } from "./ksante";
 
 export const data: Record<string, TimelineEvent> = {
   spiritBlossom,
   patch1219,
   skins,
   janna,
-  changes,
   mecha,
   bewitching,
   empyrean,
+  changes,
+  ksante,
 };
 
 /**
