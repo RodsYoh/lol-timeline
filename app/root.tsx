@@ -22,18 +22,6 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-        <Meta />
-        <Links />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
-          rel="stylesheet"
-        />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-7C8MWW6CN5"
@@ -46,6 +34,18 @@ export default function App() {
 
   gtag('config', 'G-7C8MWW6CN5');`,
           }}
+        />
+        <Meta />
+        <Links />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
+          rel="stylesheet"
         />
       </head>
       <body>
