@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { usePopper } from "react-popper";
+
 import { Champions } from "~/components/Champions";
 import { Typography } from "~/components/Typography";
+import { CalendarDetails } from "../CalendarDetails/CalendarDetails";
 import { CalendarEventFrame } from "./CalendarEventFrame";
 import { CalendarEventWrapper } from "./CalendarEventWrapper";
 import { debounce, getDaysBetweenDates } from "./helpers";
-import { CalendarEventContainer, Overlay } from "./styles";
+import { CalendarEventContainer, Overlay, Tooltip } from "./styles";
 
 /**
  * Component that displays a calendar event in the timeline.
@@ -25,6 +28,15 @@ export const CalendarEvent = (props: CalendarEventProps) => {
     champions: 0,
     title: 0,
   });
+  const [referenceElement, setReferenceElement] =
+    useState<HTMLDivElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  );
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [{ name: "offset", options: { offset: [0, 16] } }],
+  });
+
   const [isHovering, setIsHovering] = useState(false);
   const debouncedSetIsHovering = debounce(setIsHovering, 500);
 
@@ -51,6 +63,7 @@ export const CalendarEvent = (props: CalendarEventProps) => {
           onMouseEnter={() => debouncedSetIsHovering(true)}
           onMouseLeave={() => debouncedSetIsHovering(false)}
           isHovering={isHovering}
+          ref={(ref) => setReferenceElement(ref)}
         >
           <div className="calendar-event-background" />
           <CalendarEventFrame
@@ -74,6 +87,14 @@ export const CalendarEvent = (props: CalendarEventProps) => {
         </CalendarEventContainer>
       </CalendarEventWrapper>
       <Overlay isHovering={isHovering} id="overlay" />
+      <Tooltip
+        ref={(ref) => setPopperElement(ref)}
+        style={styles.popper}
+        {...attributes.popper}
+        isHovering={isHovering}
+      >
+        <CalendarDetails {...props} />
+      </Tooltip>
     </>
   );
 };

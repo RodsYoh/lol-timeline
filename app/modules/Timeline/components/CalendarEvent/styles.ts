@@ -42,7 +42,7 @@ export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
     }
 
     h3 {
-      margin: 0.5rem 0;
+      margin: 0.75rem 0;
       position: sticky;
       left: calc(${({ championsWidth }) => championsWidth}px + 0.5rem);
 
@@ -111,6 +111,24 @@ export const Overlay = styled.div<{
           visibility: hidden;
           opacity: 0;
         `}
+`;
+
+export const Tooltip = styled.div<{ isHovering?: boolean }>`
+  background-color: ${({ theme }) => theme.color.backgroundSecondary};
+  border-radius: 0.25rem;
+  padding: 1rem;
+  max-width: 30rem;
+  z-index: 300;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+
+  ${({ isHovering }) =>
+    isHovering &&
+    css`
+      visibility: visible;
+      opacity: 1;
+    `}
 `;
 
 interface CalendarEventContainerProps {

@@ -1,12 +1,27 @@
 import styled from "@emotion/styled";
+import { type CalendarDetailsProps } from "./CalendarDetails";
 
-export const CalendarDetailsContainer = styled.div`
+export const CalendarDetailsContainer = styled.div<{
+  borderCategory: CalendarDetailsProps["borderCategory"];
+}>`
   display: flex;
   flex-direction: column;
 
   .event-details {
     display: flex;
     align-items: center;
+
+    h3 {
+      margin: 0;
+    }
+
+    h4 {
+      margin-top: 0;
+    }
+
+    p {
+      margin: 0;
+    }
 
     &__img {
       width: 6.5rem;
@@ -41,6 +56,7 @@ export const CalendarDetailsContainer = styled.div`
       }
 
       &__date {
+        width: fit-content;
         padding: 0.25rem;
         border-radius: 0.25rem;
         background-color: ${({ theme }) => theme.color.backgroundPrimary};
@@ -63,17 +79,17 @@ export const CalendarDetailsContainer = styled.div`
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
-        margin-right: 0.5rem;
+        margin-right: 0.25rem;
       }
     }
   }
 
   .view-more {
-    margin-top: 1rem;
+    margin-top: 0.25rem;
     text-align: right;
 
-    P {
-      color: ${({ theme }) => theme.color.highlight};
+    span {
+      color: ${({ borderCategory, theme }) => theme.color[borderCategory]};
     }
   }
 `;

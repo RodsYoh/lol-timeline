@@ -10,14 +10,14 @@ import { ksante } from "./ksante";
 
 export const data: Record<string, TimelineEvent> = {
   spiritBlossom,
-  patch1219,
-  skins,
-  janna,
-  mecha,
-  bewitching,
-  empyrean,
-  changes,
-  ksante,
+  // patch1219,
+  // skins,
+  // janna,
+  // mecha,
+  // bewitching,
+  // empyrean,
+  // changes,
+  // ksante,
 };
 
 /**

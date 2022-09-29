@@ -5,14 +5,22 @@ import { getEventDateSpan } from "./helpers";
 import { CalendarDetailsContainer } from "./styles";
 
 export const CalendarDetails = (props: CalendarDetailsProps) => {
-  const { image, name, startDate, endDate, description, champions } = props;
+  const {
+    image,
+    name,
+    startDate,
+    endDate,
+    description,
+    champions,
+    borderCategory,
+  } = props;
 
   return (
-    <CalendarDetailsContainer>
+    <CalendarDetailsContainer borderCategory={borderCategory}>
       <div className="event-details">
-        <CalendarDetailsImage image={image} />
+        <CalendarDetailsImage image={image} borderCategory={borderCategory} />
         <div className="event-details__text">
-          <div className="event-details__date">
+          <div className="event-details__text__date">
             <Typography htmlTag="h3">
               <strong>{getEventDateSpan(startDate, endDate)}</strong>
             </Typography>
@@ -27,20 +35,20 @@ export const CalendarDetails = (props: CalendarDetailsProps) => {
         <div className="champions-details">
           {champions.map((champion) => (
             <div
-              className="champion-details__champion"
+              className="champions-details__champion"
               key={champion.championId}
             >
               <Champion champion={champion} />
               <Typography htmlTag="p" variant="subtitle">
-                {champion.name}
+                <strong>{champion.name}</strong>
               </Typography>
             </div>
           ))}
         </div>
       )}
       <div className="view-more">
-        <Typography htmlTag="p" variant="subtitle">
-          Clique para ir ao link original
+        <Typography variant="subtitle">
+          <strong>Clique para ir ao link original</strong>
         </Typography>
       </div>
     </CalendarDetailsContainer>
