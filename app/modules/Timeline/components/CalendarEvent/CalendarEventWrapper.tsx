@@ -41,6 +41,12 @@ interface CalendarEventWrapperProps extends CalendarEventProps {
    * CalendarEvent content
    */
   children: ReactNode;
+  /**
+   * Distance in days/column from the first date.
+   */
   distanceFromStart: number;
+  /**
+   * Number of days/columns the event will take.
+   */
   sizeInDays: number;
 }

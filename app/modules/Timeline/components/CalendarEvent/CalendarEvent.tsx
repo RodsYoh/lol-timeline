@@ -3,8 +3,8 @@ import { Champions } from "~/components/Champions";
 import { Typography } from "~/components/Typography";
 import { CalendarEventFrame } from "./CalendarEventFrame";
 import { CalendarEventWrapper } from "./CalendarEventWrapper";
-import { getDaysBetweenDates } from "./helpers";
-import { CalendarEventContainer } from "./styles";
+import { debounce, getDaysBetweenDates } from "./helpers";
+import { CalendarEventContainer, Overlay } from "./styles";
 
 /**
  * Component that displays a calendar event in the timeline.
@@ -25,6 +25,8 @@ export const CalendarEvent = (props: CalendarEventProps) => {
     champions: 0,
     title: 0,
   });
+  const [isHovering, setIsHovering] = useState(false);
+  const debouncedSetIsHovering = debounce(setIsHovering, 500);
 
   const sizeInDays = getDaysBetweenDates(startDate, endDate);
   const distanceFromStart = getDaysBetweenDates(firstDate, startDate);
@@ -37,35 +39,42 @@ export const CalendarEvent = (props: CalendarEventProps) => {
   }, []);
 
   return (
-    <CalendarEventWrapper
-      {...props}
-      distanceFromStart={distanceFromStart}
-      sizeInDays={sizeInDays}
-    >
-      <CalendarEventContainer
-        championsWidth={stickyComponentsWidth.champions}
-        titleWidth={stickyComponentsWidth.title}
+    <>
+      <CalendarEventWrapper
+        {...props}
+        distanceFromStart={distanceFromStart}
+        sizeInDays={sizeInDays}
       >
-        <div className="calendar-event-background" />
-        <CalendarEventFrame
-          sizeInDays={sizeInDays}
-          borderCategory={borderCategory}
-          backgroundCategory={backgroundCategory}
-        />
-        <div className="calendar-event-content">
-          {champions && (
-            <Champions
-              champions={champions}
-              className="champions"
-              ref={championsRef}
-            />
-          )}
-          <Typography htmlTag="h3" ref={titleRef}>
-            {name}
-          </Typography>
-        </div>
-      </CalendarEventContainer>
-    </CalendarEventWrapper>
+        <CalendarEventContainer
+          championsWidth={stickyComponentsWidth.champions}
+          titleWidth={stickyComponentsWidth.title}
+          onMouseEnter={() => debouncedSetIsHovering(true)}
+          onMouseLeave={() => debouncedSetIsHovering(false)}
+          isHovering={isHovering}
+        >
+          <div className="calendar-event-background" />
+          <CalendarEventFrame
+            sizeInDays={sizeInDays}
+            borderCategory={borderCategory}
+            backgroundCategory={backgroundCategory}
+          />
+          <div className="calendar-event-content">
+            {champions && (
+              <Champions
+                champions={champions}
+                className="champions"
+                ref={championsRef}
+              />
+            )}
+            <Typography htmlTag="h3" ref={titleRef}>
+              {name}
+            </Typography>
+          </div>
+          <div className="calendar-event-details"></div>
+        </CalendarEventContainer>
+      </CalendarEventWrapper>
+      <Overlay isHovering={isHovering} id="overlay" />
+    </>
   );
 };
 

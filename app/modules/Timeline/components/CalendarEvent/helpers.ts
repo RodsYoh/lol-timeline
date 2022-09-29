@@ -98,3 +98,22 @@ export function handleSize(sizeInDays: number): {
 
   return svgMap[size];
 }
+
+/**
+ * Function that takes a delay in miliseconds and returns only runs
+ * the function after the delay.
+ *
+ * @param func function to be debounced
+ * @param waitFor delay in ms
+ * @returns debounced function
+ */
+export function debounce<F extends (...args: Parameters<F>) => ReturnType<F>>(
+  func: F,
+  waitFor: number
+): (...args: Parameters<F>) => void {
+  let timeout: NodeJS.Timeout;
+  return (...args: Parameters<F>): void => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), waitFor);
+  };
+}

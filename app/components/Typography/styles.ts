@@ -7,6 +7,10 @@ export const TextContainer = styled.div`
     font-size: 1rem;
   }
 
+  &.subtitle {
+    font-size: 0.75rem;
+  }
+
   &.heading {
     font-size: 1.25rem;
   }

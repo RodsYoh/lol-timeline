@@ -1,7 +1,14 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
   position: relative;
+
+  ${({ isHovering }) =>
+    isHovering &&
+    css`
+      z-index: 300;
+    `}
 
   .calendar-event-background {
     position: absolute;
@@ -18,7 +25,7 @@ export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
   .calendar-event-content {
     display: flex;
     align-items: center;
-    padding: 0rem 1rem;
+    padding: 0rem 0.75rem 0rem 0.25rem;
     position: relative;
     z-index: 10;
 
@@ -35,18 +42,19 @@ export const CalendarEventContainer = styled.div<CalendarEventContainerProps>`
     }
 
     h3 {
+      margin: 0.5rem 0;
       position: sticky;
       left: calc(${({ championsWidth }) => championsWidth}px + 0.5rem);
 
       @media ${({ theme }) => theme.screens.lg} {
-        left: calc(${({ championsWidth }) => championsWidth}px + 2.5rem);
+        left: calc(${({ championsWidth }) => championsWidth}px + 1rem);
       }
     }
   }
 `;
 
 export const CalendarEventPosition = styled.div<CalendarEventPositionProps>`
-  margin: 1rem 0.5rem;
+  margin: 1rem 1rem;
 
   grid-column: ${({ distanceFromStart }) => distanceFromStart + 1} / span
     ${({ sizeInDays }) => sizeInDays + 1};
@@ -79,6 +87,32 @@ export const CalendarEventFrameContainer = styled.svg`
   }
 `;
 
+export const Overlay = styled.div<{
+  isHovering: CalendarEventContainerProps["isHovering"];
+}>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.color.backgroundPrimary};
+  backdrop-filter: blur(4rem);
+  z-index: 200;
+  pointer-events: none;
+  transition: opacity 0.5s ease-out;
+
+  ${({ isHovering }) =>
+    isHovering
+      ? css`
+          visibility: visible;
+          opacity: 0.7;
+        `
+      : css`
+          visibility: hidden;
+          opacity: 0;
+        `}
+`;
+
 interface CalendarEventContainerProps {
   /**
    * The width of the champion's container in pixels
@@ -88,6 +122,10 @@ interface CalendarEventContainerProps {
    * The width of the title in pixels.
    */
   titleWidth: number;
+  /**
+   * If the user is hovering the event.
+   */
+  isHovering?: boolean;
 }
 
 interface CalendarEventPositionProps {
