@@ -6,7 +6,7 @@ export const empyrean: TimelineEvent = {
   endDate: new Date("2022-11-14T00:00:00.000"),
   url: "https://www.youtube.com/watch?v=Y4SP3qEdKMU",
   image: {
-    url: "https://assets.5pots.com/file/cincopots/timeline/empyrean.jpg",
+    url: "https://assets.5pots.com/file/cincopots/timeline/rumor.jpg",
     alt: "Skins rumor",
   },
   name: "Skins Empyrean",

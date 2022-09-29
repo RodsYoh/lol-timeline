@@ -5,7 +5,7 @@ export const changes: TimelineEvent = {
     { championId: "Ryze", name: "Ryze" },
     { championId: "Ekko", name: "Ekko" },
     { championId: "Jinx", name: "Jinx" },
-    { championId: "MaterYi", name: "Master Yi" },
+    { championId: "MasterYi", name: "Master Yi" },
     { championId: "RekSai", name: "Rek'Sai" },
     { championId: "Sona", name: "Sona" },
     { championId: "Nasus", name: "Nasus" },
