@@ -7,7 +7,7 @@ describe("<CalendarDetails />", () => {
   it("has a date spn", () => {
     render(<CalendarDetails category="udyr" {...mockData.udyr} />);
 
-    const cardDate = screen.getByRole("heading", { name: "13/09 até 20/09" });
+    const cardDate = screen.getByRole("heading", { name: "13/9 até 20/9" });
 
     expect(cardDate).toBeVisible();
   });

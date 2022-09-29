@@ -30,7 +30,7 @@ interface TimelineEvent {
   /**
    * Description of the event
    */
-  description?: string;
+  description: string;
   /**
    * Event's initial date on format YYYY-MM-DD
    *
@@ -52,7 +52,7 @@ interface TimelineEvent {
   /**
    * Event's image. Required for events that will be featured
    */
-  image?: { url: string; alt: string };
+  image: { url: string; alt: string };
   /**
    * Sub events to render as card when the user performs an action in the
    * timeline
