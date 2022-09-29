@@ -1,4 +1,5 @@
 import { useTheme } from "@emotion/react";
+import { useMemo } from "react";
 import {
   getRandomEventBackground,
   getRandomEventFrame,
@@ -13,7 +14,12 @@ export const CalendarEventFrame = (props: CalendarEventFrameProps) => {
   const { sizeInDays, borderCategory, backgroundCategory } = props;
   const theme = useTheme();
 
-  const size = handleSize(sizeInDays);
+  const size = useMemo(() => handleSize(sizeInDays), [sizeInDays]);
+  const frame = useMemo(() => getRandomEventFrame(size.size), [size.size]);
+  const background = useMemo(
+    () => getRandomEventBackground(size.size),
+    [size.size]
+  );
 
   return (
     <>
@@ -25,10 +31,7 @@ export const CalendarEventFrame = (props: CalendarEventFrameProps) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d={getRandomEventBackground(size.size)}
-          fill={theme.color[backgroundCategory]}
-        />
+        <path d={background} fill={theme.color[backgroundCategory]} />
       </CalendarEventFrameContainer>
       <CalendarEventFrameContainer
         className="event-frame"
@@ -38,7 +41,7 @@ export const CalendarEventFrame = (props: CalendarEventFrameProps) => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d={getRandomEventFrame(size.size)}
+          d={frame}
           stroke={theme.color[borderCategory]}
           strokeWidth="2"
           strokeLinecap="round"

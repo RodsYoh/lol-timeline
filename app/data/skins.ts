@@ -9,5 +9,5 @@ export const skins: TimelineEvent = {
     alt: "Concept Art do vendedor do lado azul",
   },
   description:
-    "As novas skins Florescer Espiritual estaram na loja para compra!",
+    "As novas skins Florescer Espiritual entrarão na loja para compra junto com o passe!",
 };
