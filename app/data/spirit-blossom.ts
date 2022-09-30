@@ -5,7 +5,7 @@ export const spiritBlossom: TimelineEvent = {
     { championId: "Evelynn", name: "Evelynn" },
     { championId: "MasterYi", name: "Master Yi" },
     { championId: "Sett", name: "Sett" },
-    { championId: "Soraka", name: "RekSai" },
+    { championId: "RekSai", name: "Rek'Sai" },
     { championId: "Syndra", name: "Syndra" },
     { championId: "Tristana", name: "Tristana" },
     { championId: "Yorick", name: "Yorick" },
