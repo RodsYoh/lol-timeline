@@ -63,4 +63,8 @@ interface TimelineEvent {
    * the initial app state
    */
   isFeatured?: boolean;
+  /**
+   * Visual variant of the event
+   */
+  variant?: "default" | "dashed" | "dotted";
 }
