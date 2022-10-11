@@ -1,6 +1,7 @@
 import { changes } from "./changes";
 import { malzahar } from "./malzahar";
 import { skins } from "./skins";
+import { patch } from "./patch";
 import { bewitching } from "./bewitching";
 import { mecha } from "./mecha";
 import { empyrean } from "./empyrean";
@@ -10,6 +11,8 @@ export const data: Record<string, TimelineEvent> = {
   changes,
   bewitching,
   malzahar,
+  patch,
+  skins,
   mecha,
   empyrean,
   ksante,
