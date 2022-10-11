@@ -8,7 +8,6 @@ import { ksante } from "./ksante";
 
 export const data: Record<string, TimelineEvent> = {
   changes,
-  skins,
   bewitching,
   malzahar,
   mecha,
