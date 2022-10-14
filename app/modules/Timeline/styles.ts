@@ -30,20 +30,25 @@ export const CalendarContainer = styled.section`
   grid-column: 1/13;
   padding: 0.25rem;
   grid-row: 2/3;
+  height: 50vh;
 
-  min-height: 50vh;
+  .indiana-scroll-container {
+    height: 50vh;
+  }
 
   @media ${({ theme }) => theme.screens.lg} {
     grid-column: 3/13;
     grid-row: 1/3;
     margin-bottom: 20vh;
     padding: 2% 2.5%;
+    min-height: 50vh;
+    height: unset;
   }
 `;
 
 export const CardsContainer = styled.section`
   grid-column: 1/-1;
-  grid-row: 3/4;
+  grid-row: 4/5;
   display: flex;
   align-items: center;
   justify-content: center;

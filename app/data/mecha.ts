@@ -9,8 +9,8 @@ export const mecha: TimelineEvent = {
   backgroundCategory: "skins",
   borderCategory: "rumor",
   description: "Possíveis novas skins Neon Inferno para acompanhar o Azir!",
-  startDate: new Date("2022-10-18T00:00:00.000"),
-  endDate: new Date("2022-10-31T00:00:00.000"),
+  startDate: new Date("2022-11-01T00:00:00.000"),
+  endDate: new Date("2022-11-14T00:00:00.000"),
   url: "https://twitter.com/Julex_Gameplays/status/1572302139786919939",
   image: {
     url: "https://assets.5pots.com/file/cincopots/timeline/mecha.jpg",

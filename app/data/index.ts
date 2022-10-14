@@ -13,7 +13,7 @@ export const data: Record<string, TimelineEvent> = {
   malzahar,
   patch,
   skins,
-  mecha,
   empyrean,
   ksante,
+  mecha,
 };

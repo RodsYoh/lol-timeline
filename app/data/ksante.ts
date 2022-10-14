@@ -2,8 +2,8 @@ export const ksante: TimelineEvent = {
   champions: [{ championId: "Ksante", name: "K'Sante" }],
   backgroundCategory: "rumor",
   borderCategory: "champions",
-  startDate: new Date("2022-11-01T00:00:00.000"),
-  endDate: new Date("2022-11-14T00:00:00.000"),
+  startDate: new Date("2022-10-18T00:00:00.000"),
+  endDate: new Date("2022-10-31T00:00:00.000"),
   name: "K'Sante",
   description:
     "K'Sante o novo top laner pode ser lançado junto com as skins Empyrean!",
