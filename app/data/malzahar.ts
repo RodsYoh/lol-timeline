@@ -11,5 +11,4 @@ export const malzahar: TimelineEvent = {
     url: "https://assets.5pots.com/file/cincopots/timeline/malzahar.jpg",
     alt: "Splash Art do Malzahar Três Honras",
   },
-  isFeatured: true,
 };

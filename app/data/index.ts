@@ -15,5 +15,4 @@ export const data: Record<string, TimelineEvent> = {
   skins,
   empyrean,
   ksante,
-  mecha,
 };
